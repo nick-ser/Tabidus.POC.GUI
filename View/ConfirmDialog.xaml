@@ -1,0 +1,74 @@
+﻿<Window x:Class="Tabidus.POC.GUI.View.ConfirmDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Icon="../Images/icon_message.png"
+       Height="200" Width="390" ResizeMode="NoResize" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Images/bg.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Height="30">
+            <Grid.Background>
+                <ImageBrush ImageSource="../Images/confirmdialogue_header_bg.jpg"></ImageBrush>
+            </Grid.Background>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Background="#80000000">
+                <Image Source="../Images/congirmdialogue_header.png" HorizontalAlignment="Left" Margin="7" ></Image>
+            </StackPanel>
+            <TextBlock x:Name="titlewindow" Text="{Binding Title}" Grid.Column="1" Style="{DynamicResource dialogTitle}" ></TextBlock>
+
+            <Button BorderThickness="0"  Height="30" Grid.Column="2" Style="{StaticResource WindowButton}" Click="CancelButton_Click" >
+                <Button.Content>
+                    <Image Source="../Images/close.png" Height="10" Width="10" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" ></Image>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"></ColumnDefinition>
+                <ColumnDefinition Width="75*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="../Images/confirmdialogue_image.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="70" Height="62" />
+            <TextBlock x:Name="ConfirmText" Grid.Column="1" Style="{DynamicResource confirmtext}" />
+        </Grid>
+
+        <Grid Grid.Row="2" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="102"></ColumnDefinition>
+                <ColumnDefinition Width="2"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="2"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="2"></ColumnDefinition>
+                <ColumnDefinition Width="102"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Background="#1A7c7d82"></StackPanel>
+            <StackPanel Grid.Column="1" Background="Transparent"></StackPanel>
+            <StackPanel Grid.Column="5" Background="Transparent"></StackPanel>
+            <StackPanel Grid.Column="6" Background="#1A7c7d82"></StackPanel>
+            <StackPanel Grid.Column="3" Background="Transparent"></StackPanel>
+
+            <Button Grid.Column="2" x:Name="BtnOk" Content="YES" Style="{DynamicResource confirmbtns}" Height="35"
+                    Click="OKButton_Click" BorderThickness=" 0" />
+            <Button  Grid.Column="4" Content="NO" Style="{DynamicResource confirmbtns}" Height="35"
+                    Click="CancelButton_Click" BorderThickness=" 0" />
+
+            
+
+        </Grid>
+    </Grid>
+</Window>

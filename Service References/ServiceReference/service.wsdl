@@ -1,0 +1,2056 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="POCService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IPOCService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Tabidus.POC.Common.Constants" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPOCService_SearchEndPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEndPoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SearchEndPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEndPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetPagingData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingData" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetPagingData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveNewFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNewFolder" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveNewFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNewFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveDirectoryEndpoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDirectoryEndpoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveDirectoryEndpoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDirectoryEndpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetEndpoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndpoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetEndpoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetEndPointForLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndPointForLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetEndPointForLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndPointForLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetDirectoryEndpointColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectoryEndpointColor" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetDirectoryEndpointColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectoryEndpointColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SearchEndPointForLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEndPointForLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SearchEndPointForLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEndPointForLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFolders" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetDirectoryData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectoryData" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetDirectoryData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectoryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditFolder" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditEndpoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditEndpoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditEndpoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditEndpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_MoveFoldersAndEndpoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveFoldersAndEndpoints" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_MoveFoldersAndEndpoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveFoldersAndEndpointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UpdateColumnColor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateColumnColor" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UpdateColumnColor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateColumnColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UpdateColorByParent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateColorByParent" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UpdateColorByParent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateColorByParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_ImportFolderComputer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportFolderComputer" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_ImportFolderComputer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportFolderComputerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllDirectoryComputer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDirectoryComputer" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllDirectoryComputer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDirectoryComputerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetColorModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetColorModels" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetColorModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetColorModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteDirectoryComputer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDirectoryComputer" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteDirectoryComputer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDirectoryComputerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditLabelCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditLabelCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditLabelCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditLabelCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddLabelCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLabelCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddLabelCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLabelCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteLabelCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLabelCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteLabelCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLabelCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_ResetLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_ResetLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditLabel" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLabelParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelParameters" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLabelParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_CanRefresh_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanRefresh" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_CanRefresh_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanRefreshResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLastUpdateData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateData" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLastUpdateData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_CanRefreshEndpoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanRefreshEndpoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_CanRefreshEndpoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanRefreshEndpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddFolderComputerFromLDAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFolderComputerFromLDAP" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddFolderComputerFromLDAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFolderComputerFromLDAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAssignmentLastUpdateData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentLastUpdateData" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAssignmentLastUpdateData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentLastUpdateDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllNeighborhoodWatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNeighborhoodWatch" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllNeighborhoodWatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNeighborhoodWatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllNetworks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNetworks" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllNetworks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNetworksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveDiscoveries_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDiscoveries" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveNeighborhoodWatchConfirmed_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNeighborhoodWatchConfirmed" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveNeighborhoodWatchConfirmed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNeighborhoodWatchConfirmedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddNewEndpointsFromDiscovery_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewEndpointsFromDiscovery" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddNewEndpointsFromDiscovery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewEndpointsFromDiscoveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteNeighborhoodWatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNeighborhoodWatch" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteNeighborhoodWatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNeighborhoodWatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLDAPBYDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLDAPBYDomain" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLDAPBYDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLDAPBYDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLDAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLDAP" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLDAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLDAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddNewLDAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewLDAP" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddNewLDAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewLDAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteLDAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLDAP" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteLDAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLDAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLDAPDirectoryEndpoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLDAPDirectoryEndpoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLDAPDirectoryEndpoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLDAPDirectoryEndpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLDAPByDistinguishedName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLDAPByDistinguishedName" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLDAPByDistinguishedName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLDAPByDistinguishedNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLDAPDirectoryEndpointByDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLDAPDirectoryEndpointByDomain" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllLDAPDirectoryEndpointByDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLDAPDirectoryEndpointByDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLDAPLv1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLDAPLv1" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLDAPLv1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLDAPLv1Response" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRules" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRule" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRule" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRule" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddAssignmentRuleCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAssignmentRuleCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddAssignmentRuleCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAssignmentRuleCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditAssignmentRuleCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditAssignmentRuleCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditAssignmentRuleCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditAssignmentRuleCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteAssignRuleCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAssignRuleCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteAssignRuleCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAssignRuleCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRule" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetActivedRuleByDirectoryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivedRuleByDirectoryId" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetActivedRuleByDirectoryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivedRuleByDirectoryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetFileVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileVersion" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetFileVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadRequest">
+    <wsdl:part name="parameters" element="tns:FileUploadRequest" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadRequest_Headers">
+    <wsdl:part name="Comment" element="tns:Comment" />
+    <wsdl:part name="Name" element="tns:Name" />
+    <wsdl:part name="Params" element="tns:Params" />
+    <wsdl:part name="SecurityKey" element="tns:SecurityKey" />
+    <wsdl:part name="Size" element="tns:Size" />
+    <wsdl:part name="Version" element="tns:Version" />
+    <wsdl:part name="VirtualPath" element="tns:VirtualPath" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UploadFile_OutputMessage" />
+  <wsdl:message name="IPOCService_DeleteSoftwareFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSoftwareFiles" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteSoftwareFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSoftwareFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SyncNow_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncNow" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_TransferToServerAgent_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferToServerAgent" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_TransferToServerAgent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferToServerAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_NewSoftwareTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewSoftwareTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_NewSoftwareTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewSoftwareTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTransferStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTransferStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllUpdateSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateSource" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllUpdateSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllUpdateSourceSoftware_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateSourceSoftware" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllUpdateSourceSoftware_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateSourceSoftwareResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditUpdateSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUpdateSource" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditUpdateSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUpdateSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContent" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditContent" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllSoftware_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSoftware" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllSoftware_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSoftwareResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContent" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SoftwareInsertOrUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SoftwareInsertOrUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SoftwareInsertOrUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SoftwareInsertOrUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTransferScheduling_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferScheduling" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTransferScheduling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllUpdateSourceScheduling_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateSourceScheduling" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllUpdateSourceScheduling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUpdateSourceSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddOrDeleteUpdateSourceScheduling_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrDeleteUpdateSourceScheduling" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddOrDeleteUpdateSourceScheduling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrDeleteUpdateSourceSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetMainUpdateSourceUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainUpdateSourceUrl" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetMainUpdateSourceUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainUpdateSourceUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditTransferScheduling_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditTransferScheduling" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditTransferScheduling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditTransferSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddMainUpdateSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMainUpdateSource" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddMainUpdateSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMainUpdateSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetListOfPackagesForAgentUpdateSourceToDownload_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPackagesForAgentUpdateSourceToDownload" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetListOfPackagesForAgentUpdateSourceToDownload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPackagesForAgentUpdateSourceToDownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetSoftwareByUpdateSourceId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoftwareByUpdateSourceId" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetSoftwareByUpdateSourceId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoftwareByUpdateSourceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_CleanSoftwareForAgentUpdateSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:CleanSoftwareForAgentUpdateSource" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SetTaskProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTaskProgress" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTask" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTask" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AssignTaskToDirectory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskToDirectory" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AssignTaskToDirectory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskToDirectoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AssignTaskToEndpoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskToEndpoint" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AssignTaskToEndpoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignTaskToEndpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTask" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTaskAndSoftware_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAndSoftware" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTaskAndSoftware_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAndSoftwareResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTaskAndSoftwareInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAndSoftwareInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTaskAndSoftwareInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskAndSoftwareInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetSoftwarePackageForTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoftwarePackageForTask" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetSoftwarePackageForTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoftwarePackageForTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllSoftwareForTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSoftwareForTask" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllSoftwareForTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSoftwareForTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTaskProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskProgress" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetTaskProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllTaskProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTaskProgress" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllTaskProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTaskProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLastUpdateTaskProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateTaskProgress" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLastUpdateTaskProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateTaskProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllPolicies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPolicies" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetAllPolicies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditPolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditPolicy" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_EditPolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeletePolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePolicy" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeletePolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AssignPolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignPolicy" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AssignPolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddPolicy_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPolicy" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_AddPolicy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetFolderPolicies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFolderPolicies" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetFolderPolicies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFolderPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetEndpointPolicies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndpointPolicies" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetEndpointPolicies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndpointPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveSyncData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSyncData" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_SaveSyncData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSyncDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLicenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenses" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetLicenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetQuarantine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuarantine" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_GetQuarantine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuarantineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteQuarantine_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQuarantine" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_DeleteQuarantine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQuarantineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_RecoverQuarantine_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverQuarantine" />
+  </wsdl:message>
+  <wsdl:message name="IPOCService_RecoverQuarantine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverQuarantineResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPOCService">
+    <wsdl:operation name="SearchEndPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/SearchEndPoint" message="tns:IPOCService_SearchEndPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/SearchEndPointResponse" message="tns:IPOCService_SearchEndPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetPagingData" message="tns:IPOCService_GetPagingData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetPagingDataResponse" message="tns:IPOCService_GetPagingData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveNewFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/SaveNewFolder" message="tns:IPOCService_SaveNewFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/SaveNewFolderResponse" message="tns:IPOCService_SaveNewFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDirectoryEndpoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/SaveDirectoryEndpoint" message="tns:IPOCService_SaveDirectoryEndpoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/SaveDirectoryEndpointResponse" message="tns:IPOCService_SaveDirectoryEndpoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEndpoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetEndpoint" message="tns:IPOCService_GetEndpoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetEndpointResponse" message="tns:IPOCService_GetEndpoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEndPointForLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetEndPointForLabel" message="tns:IPOCService_GetEndPointForLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetEndPointForLabelResponse" message="tns:IPOCService_GetEndPointForLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectoryEndpointColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetDirectoryEndpointColor" message="tns:IPOCService_GetDirectoryEndpointColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetDirectoryEndpointColorResponse" message="tns:IPOCService_GetDirectoryEndpointColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchEndPointForLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/SearchEndPointForLabel" message="tns:IPOCService_SearchEndPointForLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/SearchEndPointForLabelResponse" message="tns:IPOCService_SearchEndPointForLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFolders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetAllFolders" message="tns:IPOCService_GetAllFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetAllFoldersResponse" message="tns:IPOCService_GetAllFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectoryData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetDirectoryData" message="tns:IPOCService_GetDirectoryData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetDirectoryDataResponse" message="tns:IPOCService_GetDirectoryData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/EditFolder" message="tns:IPOCService_EditFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/EditFolderResponse" message="tns:IPOCService_EditFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEndpoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/EditEndpoint" message="tns:IPOCService_EditEndpoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/EditEndpointResponse" message="tns:IPOCService_EditEndpoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveFoldersAndEndpoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/MoveFoldersAndEndpoints" message="tns:IPOCService_MoveFoldersAndEndpoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/MoveFoldersAndEndpointsResponse" message="tns:IPOCService_MoveFoldersAndEndpoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColumnColor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/UpdateColumnColor" message="tns:IPOCService_UpdateColumnColor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/UpdateColumnColorResponse" message="tns:IPOCService_UpdateColumnColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColorByParent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/UpdateColorByParent" message="tns:IPOCService_UpdateColorByParent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/UpdateColorByParentResponse" message="tns:IPOCService_UpdateColorByParent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportFolderComputer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/ImportFolderComputer" message="tns:IPOCService_ImportFolderComputer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/ImportFolderComputerResponse" message="tns:IPOCService_ImportFolderComputer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDirectoryComputer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetAllDirectoryComputer" message="tns:IPOCService_GetAllDirectoryComputer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetAllDirectoryComputerResponse" message="tns:IPOCService_GetAllDirectoryComputer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetColorModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetColorModels" message="tns:IPOCService_GetColorModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetColorModelsResponse" message="tns:IPOCService_GetColorModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDirectoryComputer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/DeleteDirectoryComputer" message="tns:IPOCService_DeleteDirectoryComputer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/DeleteDirectoryComputerResponse" message="tns:IPOCService_DeleteDirectoryComputer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetAllLabel" message="tns:IPOCService_GetAllLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetAllLabelResponse" message="tns:IPOCService_GetAllLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/AddLabel" message="tns:IPOCService_AddLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/AddLabelResponse" message="tns:IPOCService_AddLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditLabelCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/EditLabelCriteria" message="tns:IPOCService_EditLabelCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/EditLabelCriteriaResponse" message="tns:IPOCService_EditLabelCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLabelCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/AddLabelCriteria" message="tns:IPOCService_AddLabelCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/AddLabelCriteriaResponse" message="tns:IPOCService_AddLabelCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabelCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/DeleteLabelCriteria" message="tns:IPOCService_DeleteLabelCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/DeleteLabelCriteriaResponse" message="tns:IPOCService_DeleteLabelCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/DeleteLabel" message="tns:IPOCService_DeleteLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/DeleteLabelResponse" message="tns:IPOCService_DeleteLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/ResetLabel" message="tns:IPOCService_ResetLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/ResetLabelResponse" message="tns:IPOCService_ResetLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/EditLabel" message="tns:IPOCService_EditLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/EditLabelResponse" message="tns:IPOCService_EditLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabelParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetLabelParameters" message="tns:IPOCService_GetLabelParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetLabelParametersResponse" message="tns:IPOCService_GetLabelParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanRefresh">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/CanRefresh" message="tns:IPOCService_CanRefresh_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/CanRefreshResponse" message="tns:IPOCService_CanRefresh_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetLastUpdateData" message="tns:IPOCService_GetLastUpdateData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetLastUpdateDataResponse" message="tns:IPOCService_GetLastUpdateData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanRefreshEndpoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/CanRefreshEndpoint" message="tns:IPOCService_CanRefreshEndpoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/CanRefreshEndpointResponse" message="tns:IPOCService_CanRefreshEndpoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFolderComputerFromLDAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/AddFolderComputerFromLDAP" message="tns:IPOCService_AddFolderComputerFromLDAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/AddFolderComputerFromLDAPResponse" message="tns:IPOCService_AddFolderComputerFromLDAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentLastUpdateData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEndpointService/GetAssignmentLastUpdateData" message="tns:IPOCService_GetAssignmentLastUpdateData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEndpointService/GetAssignmentLastUpdateDataResponse" message="tns:IPOCService_GetAssignmentLastUpdateData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNeighborhoodWatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllNeighborhoodWatch" message="tns:IPOCService_GetAllNeighborhoodWatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllNeighborhoodWatchResponse" message="tns:IPOCService_GetAllNeighborhoodWatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNetworks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllNetworks" message="tns:IPOCService_GetAllNetworks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllNetworksResponse" message="tns:IPOCService_GetAllNetworks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDiscoveries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/SaveDiscoveries" message="tns:IPOCService_SaveDiscoveries_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveNeighborhoodWatchConfirmed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/SaveNeighborhoodWatchConfirmed" message="tns:IPOCService_SaveNeighborhoodWatchConfirmed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/SaveNeighborhoodWatchConfirmedResponse" message="tns:IPOCService_SaveNeighborhoodWatchConfirmed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewEndpointsFromDiscovery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/AddNewEndpointsFromDiscovery" message="tns:IPOCService_AddNewEndpointsFromDiscovery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/AddNewEndpointsFromDiscoveryResponse" message="tns:IPOCService_AddNewEndpointsFromDiscovery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNeighborhoodWatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/DeleteNeighborhoodWatch" message="tns:IPOCService_DeleteNeighborhoodWatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/DeleteNeighborhoodWatchResponse" message="tns:IPOCService_DeleteNeighborhoodWatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLDAPBYDomain">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetLDAPBYDomain" message="tns:IPOCService_GetLDAPBYDomain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetLDAPBYDomainResponse" message="tns:IPOCService_GetLDAPBYDomain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLDAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllLDAP" message="tns:IPOCService_GetAllLDAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllLDAPResponse" message="tns:IPOCService_GetAllLDAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewLDAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/AddNewLDAP" message="tns:IPOCService_AddNewLDAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/AddNewLDAPResponse" message="tns:IPOCService_AddNewLDAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLDAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/DeleteLDAP" message="tns:IPOCService_DeleteLDAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/DeleteLDAPResponse" message="tns:IPOCService_DeleteLDAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLDAPDirectoryEndpoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllLDAPDirectoryEndpoint" message="tns:IPOCService_GetAllLDAPDirectoryEndpoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllLDAPDirectoryEndpointResponse" message="tns:IPOCService_GetAllLDAPDirectoryEndpoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLDAPByDistinguishedName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetLDAPByDistinguishedName" message="tns:IPOCService_GetLDAPByDistinguishedName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetLDAPByDistinguishedNameResponse" message="tns:IPOCService_GetLDAPByDistinguishedName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLDAPDirectoryEndpointByDomain">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllLDAPDirectoryEndpointByDomain" message="tns:IPOCService_GetAllLDAPDirectoryEndpointByDomain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetAllLDAPDirectoryEndpointByDomainResponse" message="tns:IPOCService_GetAllLDAPDirectoryEndpointByDomain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLDAPLv1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscoveryService/GetLDAPLv1" message="tns:IPOCService_GetLDAPLv1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscoveryService/GetLDAPLv1Response" message="tns:IPOCService_GetLDAPLv1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/GetRules" message="tns:IPOCService_GetRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/GetRulesResponse" message="tns:IPOCService_GetRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/AddRule" message="tns:IPOCService_AddRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/AddRuleResponse" message="tns:IPOCService_AddRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/EditRule" message="tns:IPOCService_EditRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/EditRuleResponse" message="tns:IPOCService_EditRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/DeleteRule" message="tns:IPOCService_DeleteRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/DeleteRuleResponse" message="tns:IPOCService_DeleteRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAssignmentRuleCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/AddAssignmentRuleCriteria" message="tns:IPOCService_AddAssignmentRuleCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/AddAssignmentRuleCriteriaResponse" message="tns:IPOCService_AddAssignmentRuleCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditAssignmentRuleCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/EditAssignmentRuleCriteria" message="tns:IPOCService_EditAssignmentRuleCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/EditAssignmentRuleCriteriaResponse" message="tns:IPOCService_EditAssignmentRuleCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAssignRuleCriteria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/DeleteAssignRuleCriteria" message="tns:IPOCService_DeleteAssignRuleCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/DeleteAssignRuleCriteriaResponse" message="tns:IPOCService_DeleteAssignRuleCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/SaveRule" message="tns:IPOCService_SaveRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/SaveRuleResponse" message="tns:IPOCService_SaveRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivedRuleByDirectoryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssignmentService/GetActivedRuleByDirectoryId" message="tns:IPOCService_GetActivedRuleByDirectoryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssignmentService/GetActivedRuleByDirectoryIdResponse" message="tns:IPOCService_GetActivedRuleByDirectoryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileRepositoryService/GetFile" message="tns:IPOCService_GetFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileRepositoryService/GetFileResponse" message="tns:IPOCService_GetFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileRepositoryService/GetFileVersion" message="tns:IPOCService_GetFileVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileRepositoryService/GetFileVersionResponse" message="tns:IPOCService_GetFileVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileRepositoryService/UploadFile" name="FileUploadRequest" message="tns:FileUploadRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileRepositoryService/UploadFileResponse" message="tns:IPOCService_UploadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSoftwareFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileRepositoryService/DeleteSoftwareFiles" message="tns:IPOCService_DeleteSoftwareFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileRepositoryService/DeleteSoftwareFilesResponse" message="tns:IPOCService_DeleteSoftwareFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncNow">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/SyncNow" message="tns:IPOCService_SyncNow_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferToServerAgent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/TransferToServerAgent" message="tns:IPOCService_TransferToServerAgent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/TransferToServerAgentResponse" message="tns:IPOCService_TransferToServerAgent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSoftwareTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/NewSoftwareTransfer" message="tns:IPOCService_NewSoftwareTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/NewSoftwareTransferResponse" message="tns:IPOCService_NewSoftwareTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetTransferStatus" message="tns:IPOCService_GetTransferStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetTransferStatusResponse" message="tns:IPOCService_GetTransferStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetAllUpdateSource" message="tns:IPOCService_GetAllUpdateSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetAllUpdateSourceResponse" message="tns:IPOCService_GetAllUpdateSource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateSourceSoftware">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetAllUpdateSourceSoftware" message="tns:IPOCService_GetAllUpdateSourceSoftware_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetAllUpdateSourceSoftwareResponse" message="tns:IPOCService_GetAllUpdateSourceSoftware_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUpdateSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/EditUpdateSource" message="tns:IPOCService_EditUpdateSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/EditUpdateSourceResponse" message="tns:IPOCService_EditUpdateSource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/AddContent" message="tns:IPOCService_AddContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/AddContentResponse" message="tns:IPOCService_AddContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/EditContent" message="tns:IPOCService_EditContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/EditContentResponse" message="tns:IPOCService_EditContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSoftware">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetAllSoftware" message="tns:IPOCService_GetAllSoftware_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetAllSoftwareResponse" message="tns:IPOCService_GetAllSoftware_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/DeleteContent" message="tns:IPOCService_DeleteContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/DeleteContentResponse" message="tns:IPOCService_DeleteContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SoftwareInsertOrUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/SoftwareInsertOrUpdate" message="tns:IPOCService_SoftwareInsertOrUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/SoftwareInsertOrUpdateResponse" message="tns:IPOCService_SoftwareInsertOrUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferScheduling">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetTransferScheduling" message="tns:IPOCService_GetTransferScheduling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetTransferSchedulingResponse" message="tns:IPOCService_GetTransferScheduling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateSourceScheduling">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetAllUpdateSourceScheduling" message="tns:IPOCService_GetAllUpdateSourceScheduling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetAllUpdateSourceSchedulingResponse" message="tns:IPOCService_GetAllUpdateSourceScheduling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrDeleteUpdateSourceScheduling">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/AddOrDeleteUpdateSourceScheduling" message="tns:IPOCService_AddOrDeleteUpdateSourceScheduling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/AddOrDeleteUpdateSourceSchedulingResponse" message="tns:IPOCService_AddOrDeleteUpdateSourceScheduling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainUpdateSourceUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetMainUpdateSourceUrl" message="tns:IPOCService_GetMainUpdateSourceUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetMainUpdateSourceUrlResponse" message="tns:IPOCService_GetMainUpdateSourceUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditTransferScheduling">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/EditTransferScheduling" message="tns:IPOCService_EditTransferScheduling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/EditTransferSchedulingResponse" message="tns:IPOCService_EditTransferScheduling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMainUpdateSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/AddMainUpdateSource" message="tns:IPOCService_AddMainUpdateSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/AddMainUpdateSourceResponse" message="tns:IPOCService_AddMainUpdateSource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPackagesForAgentUpdateSourceToDownload">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetListOfPackagesForAgentUpdateSourceToDownload" message="tns:IPOCService_GetListOfPackagesForAgentUpdateSourceToDownload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetListOfPackagesForAgentUpdateSourceToDownloadResponse" message="tns:IPOCService_GetListOfPackagesForAgentUpdateSourceToDownload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource" message="tns:IPOCService_UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSourceResponse" message="tns:IPOCService_UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwareByUpdateSourceId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/GetSoftwareByUpdateSourceId" message="tns:IPOCService_GetSoftwareByUpdateSourceId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISoftwareService/GetSoftwareByUpdateSourceIdResponse" message="tns:IPOCService_GetSoftwareByUpdateSourceId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanSoftwareForAgentUpdateSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISoftwareService/CleanSoftwareForAgentUpdateSource" message="tns:IPOCService_CleanSoftwareForAgentUpdateSource_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/SetTaskProgress" message="tns:IPOCService_SetTaskProgress_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/AddTask" message="tns:IPOCService_AddTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/AddTaskResponse" message="tns:IPOCService_AddTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/DeleteTask" message="tns:IPOCService_DeleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/DeleteTaskResponse" message="tns:IPOCService_DeleteTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToDirectory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/AssignTaskToDirectory" message="tns:IPOCService_AssignTaskToDirectory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/AssignTaskToDirectoryResponse" message="tns:IPOCService_AssignTaskToDirectory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToEndpoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/AssignTaskToEndpoint" message="tns:IPOCService_AssignTaskToEndpoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/AssignTaskToEndpointResponse" message="tns:IPOCService_AssignTaskToEndpoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetAllTask" message="tns:IPOCService_GetAllTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetAllTaskResponse" message="tns:IPOCService_GetAllTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAndSoftware">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetTaskAndSoftware" message="tns:IPOCService_GetTaskAndSoftware_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetTaskAndSoftwareResponse" message="tns:IPOCService_GetTaskAndSoftware_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAndSoftwareInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetTaskAndSoftwareInfo" message="tns:IPOCService_GetTaskAndSoftwareInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetTaskAndSoftwareInfoResponse" message="tns:IPOCService_GetTaskAndSoftwareInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwarePackageForTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetSoftwarePackageForTask" message="tns:IPOCService_GetSoftwarePackageForTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetSoftwarePackageForTaskResponse" message="tns:IPOCService_GetSoftwarePackageForTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSoftwareForTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetAllSoftwareForTask" message="tns:IPOCService_GetAllSoftwareForTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetAllSoftwareForTaskResponse" message="tns:IPOCService_GetAllSoftwareForTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetTaskProgress" message="tns:IPOCService_GetTaskProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetTaskProgressResponse" message="tns:IPOCService_GetTaskProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaskProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetAllTaskProgress" message="tns:IPOCService_GetAllTaskProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetAllTaskProgressResponse" message="tns:IPOCService_GetAllTaskProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTaskProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetLastUpdateTaskProgress" message="tns:IPOCService_GetLastUpdateTaskProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetLastUpdateTaskProgressResponse" message="tns:IPOCService_GetLastUpdateTaskProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPolicies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/GetAllPolicies" message="tns:IPOCService_GetAllPolicies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/GetAllPoliciesResponse" message="tns:IPOCService_GetAllPolicies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/EditPolicy" message="tns:IPOCService_EditPolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/EditPolicyResponse" message="tns:IPOCService_EditPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/DeletePolicy" message="tns:IPOCService_DeletePolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/DeletePolicyResponse" message="tns:IPOCService_DeletePolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignPolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/AssignPolicy" message="tns:IPOCService_AssignPolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/AssignPolicyResponse" message="tns:IPOCService_AssignPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPolicy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/AddPolicy" message="tns:IPOCService_AddPolicy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/AddPolicyResponse" message="tns:IPOCService_AddPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderPolicies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/GetFolderPolicies" message="tns:IPOCService_GetFolderPolicies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/GetFolderPoliciesResponse" message="tns:IPOCService_GetFolderPolicies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEndpointPolicies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPolicyService/GetEndpointPolicies" message="tns:IPOCService_GetEndpointPolicies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPolicyService/GetEndpointPoliciesResponse" message="tns:IPOCService_GetEndpointPolicies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSyncData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISyncDataService/SaveSyncData" message="tns:IPOCService_SaveSyncData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISyncDataService/SaveSyncDataResponse" message="tns:IPOCService_SaveSyncData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILicensesService/GetLicenses" message="tns:IPOCService_GetLicenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILicensesService/GetLicensesResponse" message="tns:IPOCService_GetLicenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuarantine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuarantineService/GetQuarantine" message="tns:IPOCService_GetQuarantine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuarantineService/GetQuarantineResponse" message="tns:IPOCService_GetQuarantine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuarantine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuarantineService/DeleteQuarantine" message="tns:IPOCService_DeleteQuarantine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuarantineService/DeleteQuarantineResponse" message="tns:IPOCService_DeleteQuarantine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoverQuarantine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuarantineService/RecoverQuarantine" message="tns:IPOCService_RecoverQuarantine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuarantineService/RecoverQuarantineResponse" message="tns:IPOCService_RecoverQuarantine_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IPOCService" type="tns:IPOCService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IPOCService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SearchEndPoint">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/SearchEndPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingData">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetPagingData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNewFolder">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/SaveNewFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDirectoryEndpoint">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/SaveDirectoryEndpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEndpoint">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetEndpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEndPointForLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetEndPointForLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectoryEndpointColor">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetDirectoryEndpointColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEndPointForLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/SearchEndPointForLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFolders">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetAllFolders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectoryData">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetDirectoryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditFolder">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/EditFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEndpoint">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/EditEndpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveFoldersAndEndpoints">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/MoveFoldersAndEndpoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColumnColor">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/UpdateColumnColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColorByParent">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/UpdateColorByParent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportFolderComputer">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/ImportFolderComputer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDirectoryComputer">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetAllDirectoryComputer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColorModels">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetColorModels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDirectoryComputer">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/DeleteDirectoryComputer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetAllLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/AddLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLabelCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/EditLabelCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLabelCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/AddLabelCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabelCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/DeleteLabelCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/DeleteLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/ResetLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLabel">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/EditLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabelParameters">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetLabelParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanRefresh">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/CanRefresh" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateData">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetLastUpdateData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanRefreshEndpoint">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/CanRefreshEndpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFolderComputerFromLDAP">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/AddFolderComputerFromLDAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentLastUpdateData">
+      <soap12:operation soapAction="http://tempuri.org/IEndpointService/GetAssignmentLastUpdateData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNeighborhoodWatch">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetAllNeighborhoodWatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNetworks">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetAllNetworks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDiscoveries">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/SaveDiscoveries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNeighborhoodWatchConfirmed">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/SaveNeighborhoodWatchConfirmed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewEndpointsFromDiscovery">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/AddNewEndpointsFromDiscovery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNeighborhoodWatch">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/DeleteNeighborhoodWatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLDAPBYDomain">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetLDAPBYDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLDAP">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetAllLDAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewLDAP">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/AddNewLDAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLDAP">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/DeleteLDAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLDAPDirectoryEndpoint">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetAllLDAPDirectoryEndpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLDAPByDistinguishedName">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetLDAPByDistinguishedName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLDAPDirectoryEndpointByDomain">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetAllLDAPDirectoryEndpointByDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLDAPLv1">
+      <soap12:operation soapAction="http://tempuri.org/IDiscoveryService/GetLDAPLv1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRules">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/GetRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRule">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/AddRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditRule">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/EditRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRule">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/DeleteRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAssignmentRuleCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/AddAssignmentRuleCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAssignmentRuleCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/EditAssignmentRuleCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAssignRuleCriteria">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/DeleteAssignRuleCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRule">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/SaveRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivedRuleByDirectoryId">
+      <soap12:operation soapAction="http://tempuri.org/IAssignmentService/GetActivedRuleByDirectoryId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap12:operation soapAction="http://tempuri.org/IFileRepositoryService/GetFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileVersion">
+      <soap12:operation soapAction="http://tempuri.org/IFileRepositoryService/GetFileVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap12:operation soapAction="http://tempuri.org/IFileRepositoryService/UploadFile" style="document" />
+      <wsdl:input name="FileUploadRequest">
+        <soap12:header message="tns:FileUploadRequest_Headers" part="Comment" use="literal" />
+        <soap12:header message="tns:FileUploadRequest_Headers" part="Name" use="literal" />
+        <soap12:header message="tns:FileUploadRequest_Headers" part="Params" use="literal" />
+        <soap12:header message="tns:FileUploadRequest_Headers" part="SecurityKey" use="literal" />
+        <soap12:header message="tns:FileUploadRequest_Headers" part="Size" use="literal" />
+        <soap12:header message="tns:FileUploadRequest_Headers" part="Version" use="literal" />
+        <soap12:header message="tns:FileUploadRequest_Headers" part="VirtualPath" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSoftwareFiles">
+      <soap12:operation soapAction="http://tempuri.org/IFileRepositoryService/DeleteSoftwareFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncNow">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/SyncNow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="TransferToServerAgent">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/TransferToServerAgent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSoftwareTransfer">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/NewSoftwareTransfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferStatus">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetTransferStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateSource">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetAllUpdateSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateSourceSoftware">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetAllUpdateSourceSoftware" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUpdateSource">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/EditUpdateSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/AddContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditContent">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/EditContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSoftware">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetAllSoftware" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/DeleteContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftwareInsertOrUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/SoftwareInsertOrUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferScheduling">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetTransferScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpdateSourceScheduling">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetAllUpdateSourceScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrDeleteUpdateSourceScheduling">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/AddOrDeleteUpdateSourceScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainUpdateSourceUrl">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetMainUpdateSourceUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditTransferScheduling">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/EditTransferScheduling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMainUpdateSource">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/AddMainUpdateSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPackagesForAgentUpdateSourceToDownload">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetListOfPackagesForAgentUpdateSourceToDownload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/UpdateStateForAgentUpdateSourceAfterTransferPackageFromParentSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwareByUpdateSourceId">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/GetSoftwareByUpdateSourceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanSoftwareForAgentUpdateSource">
+      <soap12:operation soapAction="http://tempuri.org/ISoftwareService/CleanSoftwareForAgentUpdateSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskProgress">
+      <soap12:operation soapAction="http://tempuri.org/ITask/SetTaskProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddTask">
+      <soap12:operation soapAction="http://tempuri.org/ITask/AddTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <soap12:operation soapAction="http://tempuri.org/ITask/DeleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToDirectory">
+      <soap12:operation soapAction="http://tempuri.org/ITask/AssignTaskToDirectory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToEndpoint">
+      <soap12:operation soapAction="http://tempuri.org/ITask/AssignTaskToEndpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTask">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetAllTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAndSoftware">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetTaskAndSoftware" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskAndSoftwareInfo">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetTaskAndSoftwareInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwarePackageForTask">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetSoftwarePackageForTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSoftwareForTask">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetAllSoftwareForTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskProgress">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetTaskProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaskProgress">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetAllTaskProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTaskProgress">
+      <soap12:operation soapAction="http://tempuri.org/ITask/GetLastUpdateTaskProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPolicies">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/GetAllPolicies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPolicy">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/EditPolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePolicy">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/DeletePolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignPolicy">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/AssignPolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPolicy">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/AddPolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderPolicies">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/GetFolderPolicies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEndpointPolicies">
+      <soap12:operation soapAction="http://tempuri.org/IPolicyService/GetEndpointPolicies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSyncData">
+      <soap12:operation soapAction="http://tempuri.org/ISyncDataService/SaveSyncData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenses">
+      <soap12:operation soapAction="http://tempuri.org/ILicensesService/GetLicenses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuarantine">
+      <soap12:operation soapAction="http://tempuri.org/IQuarantineService/GetQuarantine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuarantine">
+      <soap12:operation soapAction="http://tempuri.org/IQuarantineService/DeleteQuarantine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoverQuarantine">
+      <soap12:operation soapAction="http://tempuri.org/IQuarantineService/RecoverQuarantine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="POCService">
+    <wsdl:port name="NetTcpBinding_IPOCService" binding="tns:NetTcpBinding_IPOCService">
+      <soap12:address location="net.tcp://localhost:9002/POCService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9002/POCService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.Discovery.NetworkButtonElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tabidus.POC.GUI.UserControls"
+             mc:Ignorable="d">
+    <Button x:Name="BtnNetwork" Style="{StaticResource NetworkButton}" Click="BtnNetwork_OnClick" Background="#08FFFFFF">
+        <Button.Content>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="35"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding SubnetMark}" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                <TextBlock Grid.Column="1" Text="{Binding TotalEndpoint}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0"></TextBlock>
+            </Grid>
+        </Button.Content>
+    </Button>
+</UserControl>

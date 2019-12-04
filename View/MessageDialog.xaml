@@ -1,0 +1,31 @@
+﻿<ig:XamDialogWindow x:Class="Tabidus.POC.GUI.View.MessageDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        StartupPosition="Center"
+        IsModal="True"
+        Visibility="Collapsed"
+        xmlns:ig="http://schemas.infragistics.com/xaml"
+        Header="Message"
+		MinHeight="150"
+        MaxHeight="300" Width="400" IsResizable="False">
+    <ig:XamDialogWindow.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </ig:XamDialogWindow.Resources>
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Name="TxtMessageText" TextAlignment="Center" 
+					   FontWeight="Bold" TextWrapping="Wrap"/>
+		</ScrollViewer>
+        
+        <Button x:Name="BtnOk" Style="{DynamicResource MetroButton}" Grid.Row="1" Content="OK" Height="28" Width="60" HorizontalContentAlignment="Center" Click="BtnOk_Click" />
+        
+    </Grid>
+</ig:XamDialogWindow>

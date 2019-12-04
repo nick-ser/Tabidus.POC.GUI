@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cddf94d1-925f-4c29-affa-e6582f642340" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:9002/POCService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="1ca2c89f-300e-413e-a5b0-044a414be154" SourceId="1" SourceUrl="net.tcp://localhost:9002/POCService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c8037ee2-3c34-4d7c-9ed7-042d42b0bf25" SourceId="1" SourceUrl="net.tcp://localhost:9002/POCService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="f989a0b5-0ebd-4588-8384-f73f08fb20a5" SourceId="1" SourceUrl="net.tcp://localhost:9002/POCService/mex" />
+    <MetadataFile FileName="Tabidus.POC.Common.Constants.xsd" MetadataType="Schema" ID="81beb20a-ccbe-4961-946c-15542800b55e" SourceId="1" SourceUrl="net.tcp://localhost:9002/POCService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="db5424ea-32a9-44db-a845-1c2147cbb1ac" SourceId="1" SourceUrl="net.tcp://localhost:9002/POCService/mex" />
+    <MetadataFile FileName="Message.xsd" MetadataType="Schema" ID="3e43acb3-a9b8-4063-a9c9-992b8b73c313" SourceId="1" SourceUrl="net.tcp://localhost:9002/POCService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

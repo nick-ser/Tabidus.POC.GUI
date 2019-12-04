@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.Label.VendorCriteriaElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tabidus.POC.GUI.UserControls"
+             mc:Ignorable="d" >
+    <Grid Margin="0 0 0 10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="144" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="184" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="or" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding LabelOrVisible, Converter={StaticResource BoolToVisConverter}}"/>
+        <ComboBox x:Name="CbVendorOpes" ItemsSource="{Binding CbVendorOpeItems}" Width="144" Height="30"
+			          SelectedValue="{Binding CbVendorOpeSelected}" Grid.Column="1" DropDownClosed="CbVendorOpes_DropDownClosed" />
+        <!--<TextBox x:Name="TxtVendorCriteria" Text="{Binding TxtVendorCriteria}" Grid.Column="3" Visibility="{Binding ElementName=CbVendorOpes, Path=SelectedValue, Converter={StaticResource TextBoxCriteriaVisibleConverter}}" LostFocus="TxtVendorCriteria_LostFocus"/>-->
+        <TextBox x:Name="TxtVendorCriteria" Width="300" Text="{Binding TxtVendorCriteria}" Grid.Column="3" Visibility="{Binding ElementName=CbVendorOpes, Path=SelectedValue, Converter={StaticResource TextBoxCriteriaVisibleConverter}}" LostFocus="TxtVendorCriteria_LostFocus"/>
+
+        <ComboBox x:Name="CbVendorCriteria" Width="300" Height="30" ItemsSource="{Binding CbVendorCriteriaItems}" SelectedValue="{Binding CbVendorCriteriaSelected}" Visibility="{Binding ElementName=CbVendorOpes, Path=SelectedValue, Converter={StaticResource ComboboxVisibleConverter}}"
+			          Grid.Column="3" Grid.ColumnSpan="3" HorizontalAlignment="Left" DropDownClosed="CbVendorCriteria_DropDownClosed"/>
+        <StackPanel Grid.Column="4" Orientation="Horizontal" Margin="10 0 0 0">
+            <Button x:Name="bntplus_vendor" Style="{DynamicResource minusButton}" Click="BtnSub_OnClick" Visibility="{Binding BtnDelVisible, Converter={StaticResource BoolToVisConverter}}">
+                <Button.Content>
+                    <TextBlock Style="{DynamicResource plusMinusButtonText}">-</TextBlock>
+                </Button.Content>
+            </Button>
+            <Button x:Name="bntminus_vendor" Style="{DynamicResource plusButton}" Click="BtnAdd_OnClick" Visibility="{Binding BtnAddVisible, Converter={StaticResource BoolToVisConverter}}">
+                <Button.Content>
+                    <TextBlock Style="{DynamicResource plusMinusButtonText}">+</TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.Endpoint.ImportFileHeaderElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="BrowseButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#1E3A4F"/>
+            <Setter Property="Padding" Value="10 0"></Setter>
+            <Setter Property="Foreground" Value="#5face2"></Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <!--<Setter Property="FontWeight" Value="Bold"></Setter>-->
+            <!--<Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="#244A50" Direction="320" ShadowDepth="0" BlurRadius="5" Opacity="0.8" />
+                    </Setter.Value>
+                </Setter>-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border
+                                    x:Name="Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+                            <ContentPresenter
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1D292F"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="Gray"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BrowseTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#33000000"></Setter>
+            <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+            <Setter Property="BorderThickness" Value="1 1 0 1"></Setter>
+            <Setter Property="BorderBrush" Value="#27363F"></Setter>
+            <Setter Property="FontSize" Value="10"></Setter>
+            <Setter Property="FontFamily" Value="{DynamicResource ResourceKey=OpenSansRegular}"></Setter>
+            <!--<Setter Property="FontWeight" Value="Bold"></Setter>-->
+            <!--<Setter Property="FontStyle" Value="Italic"></Setter>-->
+        </Style>
+    </UserControl.Resources>
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="30*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0"  Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Image Grid.Column="0" Margin="0 0 20 0" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Width="47" Height="43"
+		               Source="../../Images/group_header.png" />
+            <TextBlock Text="FILE IMPORT" Style="{DynamicResource HeaderTitle}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" >
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Name="SelectFromFileTextBox"
+                             Style="{StaticResource BrowseTextBoxStyle}"
+                             IsReadOnly="True"
+                             Grid.Column="1"
+                             Width="310"
+                             Padding="5"
+                             Height="30"
+                             BorderThickness="0"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding FilePath}" />
+                <TextBlock Grid.Column="1"
+                               Margin="10,0"
+                               VerticalAlignment="Center"
+                               FontSize="10"
+                               Foreground="#8e8f98"
+                               FontFamily="{DynamicResource ResourceKey=OpenSansRegular}"
+                               Text="Select Text File..."
+                               Visibility="{Binding ElementName=SelectFromFileTextBox,
+                                                    Path=Text.IsEmpty,
+                                                    Converter={StaticResource BoolToVisConverter}}" />
+                <Button Grid.Column="2"
+                            Height="30"
+                            Typography.Capitals="AllSmallCaps"
+                            Content="BROWSE"
+                            FontSize="10"
+                            FontFamily="{DynamicResource ResourceKey=Myraidproregular}"
+                            Style="{StaticResource BrowseButtonStyle}" 
+                            Command="{Binding BrowseFileCommand}"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <StackPanel VerticalAlignment="Center"
+                        FlowDirection="RightToLeft"
+                        Orientation="Horizontal">
+
+                <StackPanel x:Name="PnlMenuBar"
+                            VerticalAlignment="Center"
+                            Background="{StaticResource backgroundColorBrush}"
+                            Orientation="Horizontal">
+                    <!--<Border Style="{StaticResource VerticalSeparatorBorder}" />-->
+                    <Button Content="CANCEL"
+                            Style="{StaticResource MenuButton}" 
+                            Command="{Binding CancelCommand}"/>
+                    <!--<Border Style="{StaticResource VerticalSeparatorBorder}" />-->
+                    <Button Command="{Binding ImportCommand}"
+                            Content="IMPORT"
+                            Style="{Binding MenuImportButtonStyle}" />
+                    <!--<Border Style="{StaticResource VerticalSeparatorBorder}" />-->
+                    <Button x:Name="btnsimulate"
+                            Content="SIMULATE"
+                            Style="{Binding MenuImportButtonStyle}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <Border Style="{StaticResource SeparatorBorderHeader_new}" Grid.Row="1" Grid.ColumnSpan="3" />
+    </Grid>
+</UserControl>

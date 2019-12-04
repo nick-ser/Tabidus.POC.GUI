@@ -1,0 +1,1318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9C72B45-8E09-45BB-A291-DCB13C55BBF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tabidus.POC.GUI</RootNamespace>
+    <AssemblyName>Tabidus.POC.GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>0826780d</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>tabiduslogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="InfragisticsWPF4.Controls.Charts.XamDataChart.v15.2">
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.Controls.Charts.XamDataChart.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Controls.Interactions.XamDialogWindow.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.Controls.Interactions.XamDialogWindow.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Controls.Menus.XamDataTree.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.Controls.Menus.XamDataTree.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Controls.Menus.XamMenu.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.Controls.Menus.XamMenu.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataManager.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.DataManager.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataPresenter.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.DataPresenter.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataVisualization.v15.2">
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.DataVisualization.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DragDrop.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.DragDrop.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Editors.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.Editors.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v15.2, Version=15.2.20152.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Infragistics 2015.2\InfragisticsWPF4.v15.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Common\AppTimer.cs" />
+    <Compile Include="Common\BackgroundWorkerHelper.cs" />
+    <Compile Include="Common\QuarantineReportCellBackgroundConverter.cs" />
+    <Compile Include="Common\CollapsedImageConverter.cs" />
+    <Compile Include="Common\ColorConvertorFileImport.cs" />
+    <Compile Include="Common\ExpandedImageConverter.cs" />
+    <Compile Include="Common\ImageEndpointStatusConverter.cs" />
+    <Compile Include="Common\ColorConverter.cs" />
+    <Compile Include="Common\InvertBoolToVisConverter.cs" />
+    <Compile Include="Common\PasswordHelper.cs" />
+    <Compile Include="Common\PlatformConverter.cs" />
+    <Compile Include="Common\PropertyWatcher.cs" />
+    <Compile Include="Common\QuarantineDateTimeFormatConverter.cs" />
+    <Compile Include="Common\QuarantinFeatureToImgConverter.cs" />
+    <Compile Include="Common\ReadOnlyPanel.cs" />
+    <Compile Include="Common\TextBoxCriteriaVisibleConverter.cs" />
+    <Compile Include="Common\ComputerImageTypeConverter.cs" />
+    <Compile Include="Common\DialogHelper.cs" />
+    <Compile Include="Common\DirectoryComputerImporter.cs" />
+    <Compile Include="Common\EnumHelper.cs" />
+    <Compile Include="Common\Functions.cs" />
+    <Compile Include="Common\InvertBoolConverter.cs" />
+    <Compile Include="Common\ComboboxVisibleConverter.cs" />
+    <Compile Include="Common\SubnetAndVisibleConverter.cs" />
+    <Compile Include="Common\SubnetConverter.cs" />
+    <Compile Include="Common\TextSearchInputToVisibilityConverter.cs" />
+    <Compile Include="Common\TotalEndpointConverter.cs" />
+    <Compile Include="Common\GroupDescriptionConverter.cs" />
+    <Compile Include="Common\PageNavigatorHelper.cs" />
+    <Compile Include="Common\ServiceManager.cs" />
+    <Compile Include="Common\Tracker.cs" />
+    <Compile Include="Common\TreeHelper.cs" />
+    <Compile Include="Common\UIConstant.cs" />
+    <Compile Include="Common\WaterMarkInputConverter.cs" />
+    <Compile Include="Common\XamDataTreeBuilder.cs" />
+    <Compile Include="Forms\ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Command\DelegateCommand.cs" />
+    <Compile Include="Service References\MainUpdateSource\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StyleableWindow\StyleableWindow\ControlDoubleClickBehavior.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\ShowSystemMenuBehavior.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\SystemMenuManager.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\WindowCloseCommand.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\WindowDragBehavior.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\WindowMaximizeCommand.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\WindowMinimizeCommand.cs" />
+    <Compile Include="StyleableWindow\StyleableWindow\WindowResizeBehavior.cs" />
+    <Compile Include="UserControls\DirectoryAssignment\AssignmentCriterialElement.xaml.cs">
+      <DependentUpon>AssignmentCriterialElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\ColorCodeCriteriaElement.xaml.cs">
+      <DependentUpon>ColorCodeCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\ComputerNameCriteriaElement.xaml.cs">
+      <DependentUpon>ComputerNameCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\ComputerTypeCriteriaElement.xaml.cs">
+      <DependentUpon>ComputerTypeCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\DomainCriteriaElement.xaml.cs">
+      <DependentUpon>DomainCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\HarddiskCriteriaElement.xaml.cs">
+      <DependentUpon>HarddiskCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\IPv4CriteriaElement.xaml.cs">
+      <DependentUpon>IPv4CriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\IPv6CriteriaElement.xaml.cs">
+      <DependentUpon>IPv6CriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\LastSyncCriteriaElement.xaml.cs">
+      <DependentUpon>LastSyncCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\LDAPAssignment.xaml.cs">
+      <DependentUpon>LDAPAssignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\MemoryCriteriaElement.xaml.cs">
+      <DependentUpon>MemoryCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\ModelCriteriaElement.xaml.cs">
+      <DependentUpon>ModelCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\OSCriteriaElement.xaml.cs">
+      <DependentUpon>OSCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\PlatformCriteriaElement.xaml.cs">
+      <DependentUpon>PlatformCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DirectoryAssignment\VendorCriteriaElement.xaml.cs">
+      <DependentUpon>VendorCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Discovery\LDAPDomainExpanderElement.xaml.cs">
+      <DependentUpon>LDAPDomainExpanderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Discovery\LDAPHeaderElement.xaml.cs">
+      <DependentUpon>LDAPHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Discovery\NeighborhoodHeaderElement.xaml.cs">
+      <DependentUpon>NeighborhoodHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Discovery\NetworkButtonElement.xaml.cs">
+      <DependentUpon>NetworkButtonElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Endpoint\AssignmentHeader.xaml.cs">
+      <DependentUpon>AssignmentHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Endpoint\ColorCodeControl.xaml.cs">
+      <DependentUpon>ColorCodeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Endpoint\ColorHeaderElement.xaml.cs">
+      <DependentUpon>ColorHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Endpoint\EndpointViewHeaderElement .xaml.cs">
+      <DependentUpon>EndpointViewHeaderElement .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Endpoint\GroupHeaderElement.xaml.cs">
+      <DependentUpon>GroupHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Endpoint\ImportFileHeaderElement.xaml.cs">
+      <DependentUpon>ImportFileHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Policy\PolicyEnhancementElement.xaml.cs">
+      <DependentUpon>PolicyEnhancementElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Policy\PolicyElement.xaml.cs">
+      <DependentUpon>PolicyElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Policy\POCAgentHeaderElement.xaml.cs">
+      <DependentUpon>POCAgentHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reporting\POCQuarantineHeaderElement.xaml.cs">
+      <DependentUpon>POCQuarantineHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Software\MainSchedulingElement.xaml.cs">
+      <DependentUpon>MainSchedulingElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Software\TransferHeaderElement.xaml.cs">
+      <DependentUpon>TransferHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Software\SoftwareHeaderElement.xaml.cs">
+      <DependentUpon>SoftwareHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Software\UpdateSourceSchedulingElement.xaml.cs">
+      <DependentUpon>UpdateSourceSchedulingElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Software\UpdateSourceElement.xaml.cs">
+      <DependentUpon>UpdateSourceElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Task\InstallationPackagesControl.xaml.cs">
+      <DependentUpon>InstallationPackagesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Task\PieChartControl.xaml.cs">
+      <DependentUpon>PieChartControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Task\TaskHeader.xaml.cs">
+      <DependentUpon>TaskHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Task\TaskItemElement.xaml.cs">
+      <DependentUpon>TaskItemElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DirectoryAssignment\AssignmentViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\ColorCodeCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\ComputerNameCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\ComputerTypeCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\DomainCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\HarddiskCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\IPv4CriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\IPv6CriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\AssignmentCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\LastSyncCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\LDAPAssignmentViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\MemoryCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\ModelCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\ShowLDAPDirectoryViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\OSCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\PlatformCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\DirectoryAssignment\VendorCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Discovery\MoveLDAPViewModel.cs" />
+    <Compile Include="ViewModel\Policy\PolicyEnhancementPageViewModel.cs" />
+    <Compile Include="ViewModel\Policy\PolicyEnhancementViewModel.cs" />
+    <Compile Include="ViewModel\Policy\PolicyElementViewModel.cs" />
+    <Compile Include="ViewModel\Policy\POCAgentViewModel.cs" />
+    <Compile Include="ViewModel\Policy\EndpointDirectoryDialogViewModel.cs" />
+    <Compile Include="ViewModel\Reporting\POCQuarantineHederViewModel.cs" />
+    <Compile Include="ViewModel\Reporting\POCQuarantineViewModel.cs" />
+    <Compile Include="ViewModel\Software\AddOrEditSoftwareViewModel.cs" />
+    <Compile Include="ViewModel\Software\MainSchedulingViewModel.cs" />
+    <Compile Include="ViewModel\Software\TransferViewModel.cs" />
+    <Compile Include="ViewModel\Software\SoftwareViewModel.cs" />
+    <Compile Include="ViewModel\Software\UpdateSourceElementViewModel.cs" />
+    <Compile Include="ViewModel\Software\UpdateSourceSchedulingViewModel.cs" />
+    <Compile Include="ViewModel\Task\InstallationPackagesViewModel.cs" />
+    <Compile Include="ViewModel\Task\PieChartViewModel.cs" />
+    <Compile Include="ViewModel\Task\TaskItemViewModel.cs" />
+    <Compile Include="ViewModel\Task\TaskListViewModel.cs" />
+    <Compile Include="View\DirectoryAssignmentPage.xaml.cs">
+      <DependentUpon>DirectoryAssignmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GenericXamlDialogWindow.cs" />
+    <Compile Include="UserControls\Label\ColorCodeCriteriaElement.xaml.cs">
+      <DependentUpon>ColorCodeCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\ComputerNameCriteriaElement.xaml.cs">
+      <DependentUpon>ComputerNameCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\ComputerTypeCriteriaElement.xaml.cs">
+      <DependentUpon>ComputerTypeCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\DomainCriteriaElement.xaml.cs">
+      <DependentUpon>DomainCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\HarddiskCriteriaElement.xaml.cs">
+      <DependentUpon>HarddiskCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\IPv4CriteriaElement.xaml.cs">
+      <DependentUpon>IPv4CriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\IPv6CriteriaElement.xaml.cs">
+      <DependentUpon>IPv6CriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\LabelCriteriaElement.xaml.cs">
+      <DependentUpon>LabelCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\LabelHeaderElement.xaml.cs">
+      <DependentUpon>LabelHeaderElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\LastSyncCriteriaElement.xaml.cs">
+      <DependentUpon>LastSyncCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\MemoryCriteriaElement.xaml.cs">
+      <DependentUpon>MemoryCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\ModelCriteriaElement.xaml.cs">
+      <DependentUpon>ModelCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\OSCriteriaElement.xaml.cs">
+      <DependentUpon>OSCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\PlatformCriteriaElement.xaml.cs">
+      <DependentUpon>PlatformCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Label\VendorCriteriaElement.xaml.cs">
+      <DependentUpon>VendorCriteriaElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LeftNavigation.xaml.cs">
+      <DependentUpon>LeftNavigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PaginationElement.xaml.cs">
+      <DependentUpon>PaginationElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RightTreeElement.xaml.cs">
+      <DependentUpon>RightTreeElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Discovery\LDAPDomainExpanderElementViewModel.cs" />
+    <Compile Include="ViewModel\Discovery\LDAPViewModel.cs" />
+    <Compile Include="ViewModel\Discovery\NeighborhoodWatchMoveViewModel.cs" />
+    <Compile Include="ViewModel\Discovery\NeighborhoodWatchHeaderViewModel.cs" />
+    <Compile Include="ViewModel\Discovery\NeighborhoodWatchViewModel.cs" />
+    <Compile Include="ViewModel\Discovery\NetworkButtonViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\ColorCodePageViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\ColorCodeViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\EndpointViewHeaderViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\EndpointViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\GroupHeaderViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\GroupViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\ImportFilePageViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\ImportFolderComputerViewModel.cs" />
+    <Compile Include="ViewModel\Endpoint\MoveTreeNodeViewModel.cs" />
+    <Compile Include="ViewModel\Label\ColorCodeCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\ComputerNameCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\ComputerTypeCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\DomainCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\HarddiskCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\IPv4CriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\IPv6CriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\LabelCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\LabelFilterViewModel.cs" />
+    <Compile Include="ViewModel\Label\LabelViewModel.cs" />
+    <Compile Include="ViewModel\Label\LastSyncCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\MemoryCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\ModelCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\OSCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\PlatformCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\Label\VendorCriteriaViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowView\MainWindowDirectoryViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowView\MainWindowFileImportViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowView\MainWindowGroupViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowView\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\LeftNavigationViewModel.cs" />
+    <Compile Include="ViewModel\PageViewModelBase.cs" />
+    <Compile Include="ViewModel\RightTreeViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\ColorCodePage.xaml.cs">
+      <DependentUpon>ColorCodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfirmDialog.xaml.cs">
+      <DependentUpon>ConfirmDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddOrEditSoftwareDialog.xaml.cs">
+      <DependentUpon>AddOrEditSoftwareDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POCQuarantinePage.xaml.cs">
+      <DependentUpon>POCQuarantinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PolicyEnhancementPage.xaml.cs">
+      <DependentUpon>PolicyEnhancementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\POCAgentPage.xaml.cs">
+      <DependentUpon>POCAgentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndpointDirectoryDialog.xaml.cs">
+      <DependentUpon>EndpointDirectoryDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShowLdapDirectoryDialog.xaml.cs">
+      <DependentUpon>ShowLdapDirectoryDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MoveLdapDialog.xaml.cs">
+      <DependentUpon>MoveLdapDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NeighborhoodWatchMoveTargetDialog.xaml.cs">
+      <DependentUpon>NeighborhoodWatchMoveTargetDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LDAPPage.xaml.cs">
+      <DependentUpon>LDAPPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NeighborhoodWatchPage.xaml.cs">
+      <DependentUpon>NeighborhoodWatchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndPointListPage.xaml.cs">
+      <DependentUpon>EndPointListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndPointViewPage.xaml.cs">
+      <DependentUpon>EndPointViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ImportFilePage.xaml.cs">
+      <DependentUpon>ImportFilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MoveTargetDialog.xaml.cs">
+      <DependentUpon>MoveTargetDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ImportFolderComputerDialog.xaml.cs">
+      <DependentUpon>ImportFolderComputerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LabelsPage.xaml.cs">
+      <DependentUpon>LabelsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessageDialog.xaml.cs">
+      <DependentUpon>MessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TaskListPage.xaml.cs">
+      <DependentUpon>TaskListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransferPage.xaml.cs">
+      <DependentUpon>TransferPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SoftwarePage.xaml.cs">
+      <DependentUpon>SoftwarePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\DataPresenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DataPresenterBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ExpanderStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\AssignmentCriterialElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\ColorCodeCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\ComputerNameCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\ComputerTypeCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\DomainCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\HarddiskCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\IPv4CriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\IPv6CriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\LastSyncCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\LDAPAssignment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\MemoryCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\ModelCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\OSCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\PlatformCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DirectoryAssignment\VendorCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Discovery\LDAPDomainExpanderElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Discovery\LDAPHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Discovery\NeighborhoodHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Discovery\NetworkButtonElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Endpoint\AssignmentHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Endpoint\ColorCodeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Endpoint\ColorHeaderElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Endpoint\EndpointViewHeaderElement .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Endpoint\GroupHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Endpoint\ImportFileHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\ColorCodeCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\ComputerNameCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\ComputerTypeCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\DomainCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\HarddiskCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\IPv4CriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\IPv6CriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\LabelCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\LabelHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\LastSyncCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\MemoryCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\ModelCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\OSCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\PlatformCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Label\VendorCriteriaElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LeftNavigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PaginationElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Policy\PolicyEnhancementElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Policy\PolicyElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Policy\POCAgentHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Reporting\POCQuarantineHeaderElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RightTreeElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Software\MainSchedulingElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Software\TransferHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Software\SoftwareHeaderElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Software\UpdateSourceSchedulingElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Software\UpdateSourceElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Task\InstallationPackagesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Task\PieChartControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Task\TaskHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Task\TaskItemElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ColorCodePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConfirmDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DirectoryAssignmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddOrEditSoftwareDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\POCQuarantinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PolicyEnhancementPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\POCAgentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EndpointDirectoryDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ShowLdapDirectoryDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MoveLdapDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NeighborhoodWatchMoveTargetDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LDAPPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\NeighborhoodWatchPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EndPointListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EndPointViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ImportFilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MoveTargetDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ImportFolderComputerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LabelsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TaskListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TransferPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SoftwarePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Forms\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Fonts\OpenSans-Bold.ttf" />
+    <Resource Include="Fonts\OpenSans-BoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans-ExtraBold.ttf" />
+    <Resource Include="Fonts\OpenSans-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans-Italic.ttf" />
+    <Resource Include="Fonts\OpenSans-Light.ttf" />
+    <Resource Include="Fonts\OpenSans-LightItalic.ttf" />
+    <Resource Include="Fonts\OpenSans-Regular.ttf" />
+    <Resource Include="Fonts\OpenSans-Semibold.ttf" />
+    <Resource Include="Fonts\OpenSans-SemiboldItalic.ttf" />
+    <Resource Include="Fonts\Myriad Pro Regular.ttf" />
+    <Resource Include="Fonts\MYRIADPRO_REGULAR.OTF" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Tabidus.POC.Common.Model.DirectoryAssignment.AssignmentRule.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\MainUpdateSource\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MainUpdateSource\service.wsdl" />
+    <None Include="Service References\MainUpdateSource\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MainUpdateSource\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MainUpdateSource\Tabidus.POC.GUI.MainUpdateSource.MainDownloadFileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MainUpdateSource\Tabidus.POC.GUI.MainUpdateSource.MessageResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\service.wsdl" />
+    <None Include="Service References\ServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Tabidus.POC.Common.Constants.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Tabidus.POC.GUI.ServiceReference.UploadFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MainUpdateSource\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tabidus.POC.Common\Tabidus.POC.Common.csproj">
+      <Project>{d1ec8057-a8e1-4b20-9c3a-2460509677d3}</Project>
+      <Name>Tabidus.POC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tabidus.POC.EncryptDecryptHelper\Tabidus.POC.EncryptDecryptHelper.csproj">
+      <Project>{69f42b54-b23e-48d0-b1ca-8e95c1c6872d}</Project>
+      <Name>Tabidus.POC.EncryptDecryptHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bar.png" />
+    <Resource Include="Images\bar_dot.png" />
+    <Resource Include="Images\bar_dot_old.png" />
+    <Resource Include="Images\bg.png" />
+    <Resource Include="Images\caution_icon.png" />
+    <Resource Include="Images\cdlarge_icon.png" />
+    <Resource Include="Images\cd_icon.png" />
+    <Resource Include="Images\chb_check.png" />
+    <Resource Include="Images\chb_uncheck.png" />
+    <Resource Include="Images\colorcode_menu.png" />
+    <Resource Include="Images\delete_gray.png" />
+    <Resource Include="Images\delete_white.png" />
+    <Resource Include="Images\Desktop-old.png" />
+    <Resource Include="Images\directory_button_down.png" />
+    <Resource Include="Images\directory_button_up.png" />
+    <Resource Include="Images\discovery_menu-old.png" />
+    <Resource Include="Images\discovery_menu.png" />
+    <Resource Include="Images\eii.png" />
+    <Resource Include="Images\eiii.png" />
+    <Resource Include="Images\eiiiiiiiiiiiiiiiiiiiii%27.png" />
+    <Resource Include="Images\endpoint_menu-old.png" />
+    <Resource Include="Images\endpoint_menu.png" />
+    <Resource Include="Images\folder_icon.png" />
+    <Resource Include="Images\folder_icon_old.png" />
+    <Resource Include="Images\globe_icon.png" />
+    <Resource Include="Images\green_check.png" />
+    <Resource Include="Images\green_on_ico-old.png" />
+    <Resource Include="Images\icon_desktop.png" />
+    <Resource Include="Images\icon_desktop_group.png" />
+    <Resource Include="Images\icon_desktop_light.png" />
+    <Resource Include="Images\icon_folder-old.png" />
+    <Resource Include="Images\icon_message.png" />
+    <Resource Include="Images\icon_noagent-old.png" />
+    <Resource Include="Images\icon_noagent_group.png" />
+    <Resource Include="Images\icon_notebook.png" />
+    <Resource Include="Images\icon_notebook_group.png" />
+    <Resource Include="Images\icon_server.png" />
+    <Resource Include="Images\icon_server_group.png" />
+    <Resource Include="Images\icon_server_light.png" />
+    <Resource Include="Images\iocn5.png" />
+    <Resource Include="Images\label_icon.png" />
+    <Resource Include="Images\label_menu.png" />
+    <Resource Include="Images\LDAP_ico.png" />
+    <Resource Include="Images\license_menu-old.png" />
+    <Resource Include="Images\license_menu.png" />
+    <Resource Include="Images\loading_icon.gif" />
+    <Resource Include="Images\logo--- %281%29.png" />
+    <Resource Include="Images\log_company_name.png" />
+    <Resource Include="Images\menubar.png" />
+    <Resource Include="Images\menubar_start.png" />
+    <Resource Include="Images\NeighborhoodWatch_ico.png" />
+    <Resource Include="Images\Notebook.png" />
+    <Resource Include="Images\Notepad.png" />
+    <Resource Include="Images\notification_menu-old.png" />
+    <Resource Include="Images\notification_menu.png" />
+    <Resource Include="Images\notification_menu_1.png" />
+    <Resource Include="Images\patron_logo.png" />
+    <Resource Include="Images\poc_logo.png" />
+    <Resource Include="Images\policies_menu-old.png" />
+    <Resource Include="Images\policies_menu.png" />
+    <Resource Include="Images\policy_icon.png" />
+    <Resource Include="Images\questionIcon.png" />
+    <Resource Include="Images\red_off_ico-old.png" />
+    <Resource Include="Images\reporting_menu-old.png" />
+    <Resource Include="Images\reporting_menu.png" />
+    <Resource Include="Images\reporting_menu_hover.png" />
+    <Resource Include="Images\server-old.png" />
+    <Resource Include="Images\setting_menu-old.png" />
+    <Resource Include="Images\setting_menu.png" />
+    <Resource Include="Images\setting_menu1.png" />
+    <Resource Include="Images\setting_menu1_1.png" />
+    <Resource Include="Images\shadowright.png" />
+    <Resource Include="Images\Sidebar.png" />
+    <Resource Include="Images\sidebardivider.png" />
+    <Resource Include="Images\software_menu-old.png" />
+    <Resource Include="Images\software_menu.png" />
+    <Resource Include="Images\software_menu_1.png" />
+    <Resource Include="Images\tabidus_logo-old.png" />
+    <Resource Include="Images\tabidus_logo.png" />
+    <Resource Include="Images\traffic_lights.png" />
+    <Resource Include="Images\transfer_icon.png" />
+    <Resource Include="Images\triangle_closed.png" />
+    <Resource Include="Images\triangle_open.png" />
+    <Resource Include="Images\triangle_white_closed.png" />
+    <Resource Include="Images\triangle_white_open.png" />
+    <Resource Include="tabiduslogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MainUpdateSource\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MainUpdateSource\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MainUpdateSource\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_side_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_black_section.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\border_bottom_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\border_bottom_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_icon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_icon_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_icon_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_icon_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2_right_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\submenu_shaodw-old.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bubble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ar.png" />
+    <Resource Include="Images\arr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_hardware-old.png" />
+    <Resource Include="Images\icon_network-old.png" />
+    <Resource Include="Images\icon_os-old.png" />
+    <Resource Include="Images\icon_products-old.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\box.png" />
+    <Resource Include="Images\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NeighbourHood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_os.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Server_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow_blue_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\del.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rightsidebar_topline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\main-Source.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shadow_main_source.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\policies_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\max.png" />
+    <Resource Include="Images\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Titlebar_new.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Discovery_hover.png" />
+    <Resource Include="Images\endpoint_menu_hover.png" />
+    <Resource Include="Images\Software_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Licenses_hover.png" />
+    <Resource Include="Images\Notifications_hover.png" />
+    <Resource Include="Images\Policies_hover.png" />
+    <Resource Include="Images\Reporting_hover.png" />
+    <Resource Include="Images\Task_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Settings_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\confirmdialogue_header_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\confirmdialogue_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\congirmdialogue_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Desktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo_noagent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_hardware.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon_endpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_endpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_noagent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red_off_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\green_on_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\submenu_shaodw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_products.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg_dialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Shader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cross_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trash_icons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Save_sharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Computer_sharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SpacerImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\group_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\desktop_big_green_offline.png" />
+    <Resource Include="Images\desktop_big_green_online.png" />
+    <Resource Include="Images\desktop_big_orange_offline.png" />
+    <Resource Include="Images\desktop_big_orange_online.png" />
+    <Resource Include="Images\desktop_big_red_offline.png" />
+    <Resource Include="Images\desktop_big_red_online.png" />
+    <Resource Include="Images\notebook_big_green_offline.png" />
+    <Resource Include="Images\notebook_big_green_online.png" />
+    <Resource Include="Images\notebook_big_orange_offline.png" />
+    <Resource Include="Images\notebook_big_orange_online.png" />
+    <Resource Include="Images\notebook_big_red_offline.png" />
+    <Resource Include="Images\notebook_big_red_online.png" />
+    <Resource Include="Images\server_big_green_offline.png" />
+    <Resource Include="Images\server_big_green_online.png" />
+    <Resource Include="Images\server_big_orange_offline.png" />
+    <Resource Include="Images\server_big_orange_online.png" />
+    <Resource Include="Images\server_big_red_offline.png" />
+    <Resource Include="Images\server_big_red_online.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\desktop_small_green_offline.png" />
+    <Resource Include="Images\desktop_small_green_online.png" />
+    <Resource Include="Images\desktop_small_orange_offline.png" />
+    <Resource Include="Images\desktop_small_orange_online.png" />
+    <Resource Include="Images\desktop_small_red_offline.png" />
+    <Resource Include="Images\desktop_small_red_online.png" />
+    <Resource Include="Images\notebook_small_green_offline.png" />
+    <Resource Include="Images\notebook_small_green_online.png" />
+    <Resource Include="Images\notebook_small_orange_offline.png" />
+    <Resource Include="Images\notebook_small_orange_online.png" />
+    <Resource Include="Images\notebook_small_red_offline.png" />
+    <Resource Include="Images\notebook_small_red_online.png" />
+    <Resource Include="Images\server_small_green_offline.png" />
+    <Resource Include="Images\server_small_green_online.png" />
+    <Resource Include="Images\server_small_orange_offline.png" />
+    <Resource Include="Images\server_small_orange_online.png" />
+    <Resource Include="Images\server_small_red_offline.png" />
+    <Resource Include="Images\server_small_red_online.png" />
+    <Resource Include="Images\unknown_small_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\client_icon.png" />
+    <Resource Include="Images\ldap_folder.png" />
+    <Resource Include="Images\server_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Task_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\client_icon_old.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

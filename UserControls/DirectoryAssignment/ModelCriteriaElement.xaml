@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.DirectoryAssignment.ModelCriteriaElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tabidus.POC.GUI.UserControls"
+             mc:Ignorable="d" >
+    <Grid Margin="0 0 0 10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="144" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <!--<ColumnDefinition Width="184" />
+            <ColumnDefinition Width="75" />-->
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="or" Margin="0 0 0 -13" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding LabelOrVisible, Converter={StaticResource BoolToVisConverter}}"/>
+        <ComboBox x:Name="CbModelOpes" ItemsSource="{Binding CbModelOpeItems}" SelectedValue="{Binding CbModelOpeSelected}"
+			          Grid.Column="1" DropDownClosed="CbModelOpes_DropDownClosed" />
+        <TextBox HorizontalAlignment="Left"  Grid.Column="3" x:Name="TxtModelCriteria" Width="300" Text="{Binding TxtModelCriteria}" Visibility="{Binding ElementName=CbModelOpes, Path=SelectedValue, Converter={StaticResource TextBoxCriteriaVisibleConverter}}" LostFocus="TxtModelCriteria_LostFocus"/>
+        <!--<TextBox x:Name="TxtModelCriteria"  Width="184" Text="{Binding TxtModelCriteria}" Grid.Column="3" Visibility="{Binding ElementName=CbModelOpes, Path=SelectedValue, Converter={StaticResource TextBoxCriteriaVisibleConverter}}" LostFocus="TxtModelCriteria_LostFocus"/>-->
+        <ComboBox x:Name="CbModelCriteria" ItemsSource="{Binding CbModelCriteriaItems}" SelectedValue="{Binding CbModelCriteriaSelected}" Visibility="{Binding ElementName=CbModelOpes, Path=SelectedValue, Converter={StaticResource ComboboxVisibleConverter}}"
+			       Width="300" Grid.Column="3" HorizontalAlignment="Left" DropDownClosed="CbModelCriteria_DropDownClosed"/>
+        <StackPanel Grid.Column="5" Orientation="Horizontal" Margin="10 0 0 0">
+            <!--<Button Width="30" Background="#33000000" Height="30" Foreground="#1FFFFFFF" Content="-" FontSize="25" Margin="0,0,10,0" Click="BtnSub_OnClick" Visibility="{Binding BtnDelVisible, Converter={StaticResource BoolToVisConverter}}"></Button>
+            <Button Width="30" Background="#33000000" Height="30" Foreground="#1FFFFFFF" Content="+" FontSize="25" Margin="0,0,10,0" Click="BtnAdd_OnClick" Visibility="{Binding BtnAddVisible, Converter={StaticResource BoolToVisConverter}}"></Button>-->
+
+            <!--change - and + sign 10-05-19 ABL-->
+            <Button x:Name="bntplus_model" Style="{DynamicResource minusButton}" Click="BtnSub_OnClick" Visibility="{Binding BtnDelVisible, Converter={StaticResource BoolToVisConverter}}">
+                <Button.Content>
+                    <TextBlock Style="{DynamicResource plusMinusButtonText}">-</TextBlock>
+                </Button.Content>
+            </Button>
+            <Button x:Name="bntminus_model" Style="{DynamicResource plusButton}" Click="BtnAdd_OnClick" Visibility="{Binding BtnAddVisible, Converter={StaticResource BoolToVisConverter}}">
+                <Button.Content>
+                    <TextBlock Style="{DynamicResource plusMinusButtonText}">+</TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

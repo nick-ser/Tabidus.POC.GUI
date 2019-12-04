@@ -1,0 +1,709 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.Label.LabelCriteriaElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:common="clr-namespace:Tabidus.POC.GUI.Common"
+             mc:Ignorable="d" FontFamily="{DynamicResource ResourceKey=OpenSansRegular}">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ExpanderToggleButtonDirAssignment"
+                 TargetType="{x:Type ToggleButton}">
+            <Border x:Name="Border"
+          CornerRadius="0"
+          BorderThickness="2 0 0 0" Background="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="MouseOver"/>
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <Storyboard>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                          Storyboard.TargetProperty="(Panel.Background).
+                (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                    <EasingColorKeyFrame KeyTime="0"
+                                   Value="{StaticResource ControlLightColor}" />
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                          Storyboard.TargetProperty="(Border.BorderBrush).
+                (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                    <EasingColorKeyFrame KeyTime="0"
+                                   Value="{StaticResource ControlLightColor}" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="CheckStates">
+                        <VisualState x:Name="Checked">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="CollapsedArrow">
+                                    <DiscreteObjectKeyFrame KeyTime="0"
+                                      Value="{x:Static Visibility.Hidden}" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="ExpandededArrow">
+                                    <DiscreteObjectKeyFrame KeyTime="0"
+                                      Value="{x:Static Visibility.Visible}" />
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Unchecked" />
+                        <VisualState x:Name="Indeterminate" />
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Grid>
+                    <!--<Image x:Name="CollapsedArrow" Width="14" Source="{Binding IsActived, Converter={StaticResource CollapsedImageConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                    <Image x:Name="ExpandededArrow" Width="14" Source="{Binding IsActived, Converter={StaticResource ExpandedImageConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"></Image>-->
+                    <Image x:Name="CollapsedArrow" Width="14" Source="{Binding IsActived, Converter={StaticResource CollapsedImageConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                    <Image x:Name="ExpandededArrow" Width="14" Source="{Binding IsActived, Converter={StaticResource ExpandedImageConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"></Image>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+        <Style TargetType="{x:Type Expander}">
+
+            <Setter Property="Foreground" Value="{StaticResource TextblockLabelBrush}"></Setter>
+            <Setter Property="Margin" Value="0,10,0,0"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Expander}">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style TargetType="CheckBox">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type CheckBox}">
+                                                <Grid>
+                                                    <!--<Image x:Name="UnCheck" Source="../Images/chb_uncheck.png" Width="21"></Image>
+                        <Image x:Name="Check" Source="../Images/chb_check.png" Width="21"></Image>-->
+                                                    <Image x:Name="UnCheck" Source="../../Images/box.png" Width="15"></Image>
+                                                    <Image x:Name="Check" Source="../../Images/check.png" Width="15"></Image>
+                                                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsChecked" Value="True">
+                                                        <Setter TargetName="UnCheck" Property="Visibility" Value="Hidden"/>
+                                                        <Setter TargetName="Check" Property="Visibility" Value="Visible"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsChecked" Value="False">
+                                                        <Setter TargetName="UnCheck" Property="Visibility" Value="Visible"/>
+                                                        <Setter TargetName="Check" Property="Visibility" Value="Hidden"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition x:Name="ContentRow"
+                           Height="0" />
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Panel.Background).
+                      (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <EasingColorKeyFrame KeyTime="0"
+                                         Value="{StaticResource ControlLightColor}" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Border.BorderBrush).
+                      (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <EasingColorKeyFrame KeyTime="0"
+                                         Value="{StaticResource ControlLightColor}" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="Border"
+                  Grid.Row="0"
+                  BorderThickness="0"
+                  CornerRadius="0" Background="{Binding ExpanderBackgroundColor}" Height="45">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="120" />
+                                    </Grid.ColumnDefinitions>
+                                    <ToggleButton x:Name="ToggleButton" OverridesDefaultStyle="True"
+                            Template="{StaticResource ExpanderToggleButtonDirAssignment}"
+                            IsChecked="{Binding IsExpanded, Mode=TwoWay, 
+                  RelativeSource={RelativeSource TemplatedParent}}">
+                                        <ToggleButton.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1"
+                                       StartPoint="0.5,0">
+                                                <GradientStop Color="{Binding ExpanderBackgroundColor}"
+                                  Offset="0" />
+                                                <GradientStop Color="{Binding ExpanderBackgroundColor}"
+                                  Offset="1" />
+                                            </LinearGradientBrush>
+                                        </ToggleButton.Background>
+                                    </ToggleButton>
+                                    <Border x:Name="activeborder" BorderThickness="3 0 0 0" BorderBrush="{Binding Bordercolor}" ></Border>
+                                    <Button x:Name="BtnExpandHeader" Grid.Column="1" Content="{Binding Header,RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpanHeaderButton}" Visibility="{Binding IsNotAddState, Converter={StaticResource BoolToVisConverter}}" Foreground="{Binding TextColor}" Click="Expander_OnExpanded"></Button>
+                                    <TextBox x:Name="TbExpandHeader" Grid.Column="1" Text="{Binding Header,RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Height="25" FontSize="14" VerticalContentAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsAddState, Converter={StaticResource BoolToVisConverter}}"></TextBox>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                        <Border x:Name="BorderNew"
+                                            CornerRadius="0"
+                                            BorderThickness="2 0 0 0" Background="{Binding ExpanderBackgroundColor}">
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStatesNew">
+                                                    <VisualState x:Name="NormalNew" />
+                                                    <VisualState x:Name="MouseOverNew"/>
+                                                    <VisualState x:Name="PressedNew" />
+                                                    <VisualState x:Name="DisabledNew">
+                                                        <Storyboard>
+                                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                          Storyboard.TargetProperty="(Panel.Background).
+                (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                                <EasingColorKeyFrame KeyTime="0"
+                                   Value="{StaticResource ControlLightColor}" />
+                                                            </ColorAnimationUsingKeyFrames>
+                                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                          Storyboard.TargetProperty="(Border.BorderBrush).
+                (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                                <EasingColorKeyFrame KeyTime="0"
+                                   Value="{StaticResource ControlLightColor}" />
+                                                            </ColorAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="CheckStates">
+                                                    <VisualState x:Name="Checked">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="CollapsedArrow">
+                                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                      Value="{x:Static Visibility.Hidden}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="ExpandededArrow">
+                                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                      Value="{x:Static Visibility.Visible}" />
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Unchecked" />
+                                                    <VisualState x:Name="Indeterminate" />
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Grid Width="45">
+                                                <Button Style="{StaticResource ImageButton}" Height="14" Width="13" Command="{Binding DeleteRuleCommand}" ToolTip="Delete rule">
+                                                    <Button.Background>
+                                                        <ImageBrush ImageSource="../../Images/del.png"></ImageBrush>
+                                                        <!--<Image Height="14" Width="13" Source="../../Images/del.png"></Image>-->
+                                                    </Button.Background>
+                                                </Button>
+                                            </Grid>
+                                        </Border>
+
+                                        <!--<TextBlock  VerticalAlignment="Center" Foreground="White" Margin="20 0 0 0">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="Inactive" />
+                                                    --><!--<Setter Property="Foreground" Value="#8E8f93" />--><!--
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=CbExpandHeader, Path=IsChecked}" Value="True">
+                                                            <Setter Property="Text" Value="Active" />
+                                                            --><!--<Setter Property="Foreground" Value="#FFF" />--><!--
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>-->
+                                        <!--<CheckBox x:Name="CbExpandHeader" IsChecked="{Binding IsActived}" HorizontalAlignment="Right" Margin="10,0,5,0" VerticalAlignment="Center"  Command="{Binding EditRuleCommand}"></CheckBox>-->
+                                    </StackPanel>
+
+                                </Grid>
+                            </Border>
+                            <Border x:Name="Content"
+                  Grid.Row="1"
+                  BorderThickness="0"
+                  CornerRadius="0">
+                                <ContentPresenter Margin="0,0,0,0" />
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded"
+                   Value="True">
+                                <Setter TargetName="ContentRow"
+                    Property="Height"
+                    Value="{Binding DesiredHeight, ElementName=Content}" />
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+        <Expander x:Name="Expander" ClipToBounds="False" Header="{Binding LabelName}" IsExpanded="{Binding IsExpanded}"
+              Expanded="Expander_OnExpanded">
+
+            <StackPanel Background="{StaticResource LabelCriteriaBackgroundColorBrush}" >
+                <Grid Margin="25 0 0 0"  >
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Height" Value="30" ></Setter>
+                        </Style>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                            <Setter Property="Content" Value=""></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                                        <Grid>
+                                            <Image x:Name="UnCheck" Source="../../Images/box.png" Width="21"></Image>
+                                            <Image x:Name="Check" Source="../../Images/check.png" Width="21"></Image>
+                                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter TargetName="UnCheck" Property="Visibility" Value="Hidden"/>
+                                                <Setter TargetName="Check" Property="Visibility" Value="Visible"/>
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="False">
+                                                <Setter TargetName="UnCheck" Property="Visibility" Value="Visible"/>
+                                                <Setter TargetName="Check" Property="Visibility" Value="Hidden"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Background" Value="#33000000"></Setter>
+                            <Setter Property="Height" Value="17"></Setter>
+                            <Setter Property="Width" Value="21"></Setter>
+                        </Style>
+                        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+                            <Border x:Name="PART_ContentHost" Focusable="True" />
+                        </ControlTemplate>
+                        <Style x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="22" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Border
+										x:Name="Border"
+										Grid.ColumnSpan="2"
+										CornerRadius="0"
+										Background="{TemplateBinding Background}"
+										BorderBrush="{TemplateBinding BorderBrush}"
+										BorderThickness="0"/>
+                                            <Border
+										Grid.Column="1"
+										CornerRadius="0"
+										Background="Transparent"
+									    HorizontalAlignment="Right"
+										BorderBrush="Transparent"
+									    Margin="0 0 12 0"
+										BorderThickness="10" />
+                                            <Path
+										x:Name="Arrow"
+										Grid.Column="1"
+										Stroke="Gray"
+										HorizontalAlignment="Right"
+										VerticalAlignment="Center"
+									    Margin="0 0 15 0"
+										Data="M0 0 L6 6 L12 0" />
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="Border" Property="Background" Value="LightGray" />
+                                                <Setter TargetName="Border" Property="BorderBrush" Value="Gray" />
+                                                <Setter Property="Foreground"
+										        Value="White" />
+                                                <Setter Property="Foreground"
+									            Value="Red" />
+                                                <Setter TargetName="Arrow" Property="Fill" Value="Gray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                        <Style TargetType="{x:Type ComboBox}">
+                            <Setter Property="Foreground"
+					        Value="#8e8f98" />
+                            <Setter Property="Background" Value="{StaticResource ControlLightColorBrush}" />
+                            <Setter Property="SnapsToDevicePixels" Value="true" />
+                            <Setter Property="OverridesDefaultStyle" Value="true" />
+                            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+                            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="MinWidth" Value="144" />
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <ToggleButton
+										Name="ToggleButton"
+										BorderBrush="{TemplateBinding BorderBrush}"
+										Background="{TemplateBinding Background}"
+										Foreground="{TemplateBinding Foreground}"
+										Style="{StaticResource ComboBoxToggleButton}"
+										Grid.Column="2"
+										Focusable="false"
+										IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+										ClickMode="Press" />
+                                            <ContentPresenter
+										Name="ContentSite"
+										IsHitTestVisible="False"
+										Content="{TemplateBinding SelectionBoxItem}"
+										ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+										ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+										Margin="10,3,3,3"
+										VerticalAlignment="Center"
+										HorizontalAlignment="Left" />
+                                            <TextBox x:Name="PART_EditableTextBox"
+									         Style="{x:Null}"
+									         Template="{StaticResource ComboBoxTextBox}"
+									         HorizontalAlignment="Center"
+									         VerticalAlignment="Center"
+									         Margin="3,3,23,3"
+									         Focusable="True"
+									         Visibility="Hidden"
+									         IsReadOnly="{TemplateBinding IsReadOnly}" />
+                                            <Popup
+										Name="Popup"
+										Placement="Bottom"
+										IsOpen="{TemplateBinding IsDropDownOpen}"
+										AllowsTransparency="True"
+										Focusable="False"
+										PopupAnimation="Slide">
+                                                <Grid
+											Name="DropDown"
+											SnapsToDevicePixels="True"
+											MinWidth="{TemplateBinding ActualWidth}"
+											MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border
+												x:Name="DropDownBorder"
+												Background="#2b2b2b"
+												BorderThickness="0"
+												BorderBrush="{TemplateBinding Foreground}" />
+                                                    <ScrollViewer Margin="4,6,4,6" HorizontalScrollBarVisibility="Auto">
+                                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                                    </ScrollViewer>
+                                                </Grid>
+                                            </Popup>
+
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="HasItems" Value="false">
+                                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95" />
+                                            </Trigger>
+                                            <Trigger Property="IsGrouping" Value="true">
+                                                <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+                                            </Trigger>
+                                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0" />
+                                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0" />
+                                            </Trigger>
+                                            <Trigger Property="IsEditable" Value="true">
+                                                <Setter Property="IsTabStop" Value="false" />
+                                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible" />
+                                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="BorderThickness" Value="0" />
+                                                <Setter Property="Background" Value="Red" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="Width" Value="184"></Setter>
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Background" Value="#09FFFFFF"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                            <Setter Property="Padding" Value="5 7"></Setter>
+                            <Setter Property="Foreground" Value="{StaticResource textblockColorCodeBrush}" />
+                            <!--<Setter Property="Foreground" Value="#FFFFFFFF" />-->
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox x:Name="ChbComputerName"  IsChecked="{Binding ChbComputerChecked}" Margin="0 32 0 0" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtComputerName"  Text="Computer Name" Grid.Row="0" Margin="0 32 0 0" Grid.Column="1"  VerticalAlignment="Top">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbComputerName, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlComputerNameCri"  Grid.Row="0" Grid.Column="2" Margin="0 32 0 0" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbVendor" IsChecked="{Binding ChbVendorChecked}" Grid.Row="1" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtVendor" Text="Vendor" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0" >
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbVendor, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlVendorCri" Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbModel" IsChecked="{Binding ChbModelChecked}" Grid.Row="2" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}"/>
+                    <TextBlock x:Name="TxtModel" Text="Model" Grid.Row="2" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0" >
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbModel, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlModelCri" Grid.Row="2" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbOs" IsChecked="{Binding ChbOsChecked}" Grid.Row="3" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0" Command="{Binding OnLabelElementChanged}"/>
+                    <TextBlock x:Name="TxtOs" Text="Operating System" Grid.Row="3" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbOs, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlOsCri" Grid.Row="3" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbPlatform" IsChecked="{Binding ChbPlatformChecked}" Grid.Row="4" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}"/>
+                    <TextBlock x:Name="TxtPlatform" Text="Platform" Grid.Row="4" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbPlatform, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlPlatformCri" Grid.Row="4" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbComputerType" IsChecked="{Binding ChbComputerTypeChecked}" Grid.Row="5" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}"/>
+                    <TextBlock x:Name="TxtComputerType" Text="Computer Type" Grid.Row="5" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbComputerType, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlComputerTypeCri" Grid.Row="5" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbDomain" IsChecked="{Binding ChbDomainChecked}" Grid.Row="6" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtDomain" Text="Domain" Grid.Row="6" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbDomain, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlDomainCri" Grid.Row="6" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbMemory" IsChecked="{Binding ChbMemoryChecked}" Grid.Row="7" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtMemory" Text="Memory" Grid.Row="7" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbMemory, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlMemoryCri" Grid.Row="7" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbHarddisk" IsChecked="{Binding ChbHarddiskChecked}" Grid.Row="8" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0" Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtHarddisk" Text="Harddisk" Grid.Row="8" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbHarddisk, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlHarddiskCri" Grid.Row="8" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbIPv4" IsChecked="{Binding ChbIPv4Checked}" Grid.Row="9" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0"  Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtIPv4" Text="IPv4" Grid.Row="9" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbIPv4, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlIPv4Cri" Grid.Row="9" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbIPv6" IsChecked="{Binding ChbIPv6Checked}" Grid.Row="10" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0" Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtIPv6" Text="IPv6" Grid.Row="10" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbIPv6, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlIPv6Cri" Grid.Row="10" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbLastSync" IsChecked="{Binding ChbLastSyncChecked}" Grid.Row="11" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0" Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtLastSync" Text="Last Sync" Grid.Row="11" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbLastSync, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlLastSyncCri" Grid.Row="11" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+                    <CheckBox x:Name="ChbColorCode" IsChecked="{Binding ChbColorCodeChecked}" Grid.Row="12" Grid.Column="0"  VerticalAlignment="Top" Margin="0,3,0,0" Command="{Binding OnLabelElementChanged}" />
+                    <TextBlock x:Name="TxtColorCode" Text="Color Code" Grid.Row="12" Grid.Column="1"  VerticalAlignment="Top" Margin="0,3,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="No" />
+                                <Setter Property="Foreground" Value="#8E8f93" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChbColorCode, Path=IsChecked}" Value="True">
+                                        <Setter Property="Text" Value="Yes!" />
+                                        <Setter Property="Foreground" Value="#FFF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <StackPanel x:Name="PnlColorCodeCri" Grid.Row="12" Grid.Column="2" Orientation="Vertical">
+
+                    </StackPanel>
+
+                </Grid>
+            </StackPanel>
+
+        </Expander>
+  
+</UserControl>

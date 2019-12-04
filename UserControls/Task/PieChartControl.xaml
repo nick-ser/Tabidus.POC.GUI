@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.Task.PieChartControl"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Tabidus.POC.GUI.UserControls.Task"
+			 xmlns:ig="http://schemas.infragistics.com/xaml"
+			 mc:Ignorable="d">
+	<UserControl.Resources>
+		<DataTemplate x:Key="PieChartDataTemplate">
+			<StackPanel Orientation="Horizontal">
+				<Ellipse Fill="{Binding SolidColor}" Width="10" Height="10"></Ellipse>
+				<TextBlock Text="{Binding TaskName}" Margin="8 0"></TextBlock>
+			</StackPanel>
+		</DataTemplate>
+	</UserControl.Resources>
+	<Grid Margin="8" VerticalAlignment="Center">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="200"></RowDefinition>
+		</Grid.RowDefinitions>
+		<!--Column 1: Pie Chart-->
+		<!--LegendItemBadgeTemplate="{DynamicResource SoftwareLegendItemBadgeTemplate}"-->
+		<!--Legend="{Binding ElementName=Legend}"-->
+		<ig:XamPieChart x:Name="TaskProgressPieChart"
+						Loaded="TaskProgressPieChart_OnLoaded"
+						ItemsSource="{Binding TaskProgressCollection}" 
+						ValueMemberPath="TaskCount"
+						LabelMemberPath="TaskName"
+						ToolTip="{}{TaskName}"
+						SnapsToDevicePixels="True"
+						StartAngle="-90"
+                        OthersCategoryThreshold="0"
+						Brushes="{Binding ColorBrushCollection}"
+						Width="200" Height="200"/>
+		<!--Column 2:Task progress list-->
+		<!--<ig:ItemLegend x:Name="Legend"
+			Grid.Column="1"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Left"
+			Margin="0"
+			Background="Transparent"
+			BorderThickness="0"
+			BorderBrush="Transparent"
+			Width="175"
+			Height="200">
+		</ig:ItemLegend>-->
+		<ItemsControl Grid.Column="1" VerticalAlignment="Center" Margin="8 0 0 0"
+					  ItemsSource="{Binding TaskProgressCollection}"
+					  ItemTemplate="{DynamicResource PieChartDataTemplate}">
+		</ItemsControl>
+	</Grid>
+</UserControl>

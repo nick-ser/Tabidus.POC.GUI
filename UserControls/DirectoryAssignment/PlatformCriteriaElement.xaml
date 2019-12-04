@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Tabidus.POC.GUI.UserControls.DirectoryAssignment.PlatformCriteriaElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tabidus.POC.GUI.UserControls"
+             mc:Ignorable="d" >
+    <Grid Margin="0 0 0 10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="144" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="120" />
+            <!--<ColumnDefinition Width="80" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="75" />-->
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="or" Margin="0 0 0 -13" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding LabelOrVisible, Converter={StaticResource BoolToVisConverter}}"/>
+        <ComboBox x:Name="CbPlatformOpes" ItemsSource="{Binding CbPlatformOpeItems}" Grid.Column="1"
+			          SelectedValue="{Binding CbPlatformOpeSelected}" DisplayMemberPath="Text" SelectedValuePath="Value" DropDownClosed="CbPlatformOpes_DropDownClosed" />
+        <StackPanel Grid.Column="3" Orientation="Horizontal" Margin="-15 0 0 0">
+            <!--<Button Width="30" Background="#33000000" Height="30" Foreground="#1FFFFFFF" Content="-" FontSize="25" Margin="0,0,10,0" Click="BtnSub_OnClick" Visibility="{Binding BtnDelVisible, Converter={StaticResource BoolToVisConverter}}"></Button>
+            <Button Width="30" Background="#33000000" Height="30" Foreground="#1FFFFFFF" Content="+" FontSize="25" Margin="0,0,10,0" Click="BtnAdd_OnClick" Visibility="{Binding BtnAddVisible, Converter={StaticResource BoolToVisConverter}}"></Button>-->
+            <Button x:Name="btnplus_platform" Style="{DynamicResource minusButton}" Click="BtnSub_OnClick" Visibility="{Binding BtnDelVisible, Converter={StaticResource BoolToVisConverter}}">
+                <Button.Content>
+                    <TextBlock Style="{DynamicResource plusMinusButtonText}">-</TextBlock>
+                </Button.Content>
+            </Button>
+            <Button x:Name="btnminus_platform" Style="{DynamicResource plusButton}" Click="BtnAdd_OnClick" Visibility="{Binding BtnAddVisible, Converter={StaticResource BoolToVisConverter}}">
+                <Button.Content>
+                    <TextBlock Style="{DynamicResource plusMinusButtonText}">+</TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

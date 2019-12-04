@@ -1,0 +1,244 @@
+﻿<Page x:Class="Tabidus.POC.GUI.View.EndPointViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:userControls="clr-namespace:Tabidus.POC.GUI.UserControls"
+      xmlns:endpoint="clr-namespace:Tabidus.POC.GUI.UserControls.Endpoint"
+      mc:Ignorable="d"
+      Title="EndPointViewPage">
+    <Page.Resources>
+        <Style TargetType="{x:Type ScrollViewer}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <ScrollContentPresenter Grid.Column="0"/>
+                            <ScrollBar Name="PART_VerticalScrollBar" Grid.Row="0" Grid.Column="1" Value="{TemplateBinding VerticalOffset}" Maximum="{TemplateBinding ScrollableHeight}" ViewportSize="{TemplateBinding ViewportHeight}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                            <ScrollBar Name="PART_HorizontalScrollBar" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Value="{TemplateBinding HorizontalOffset}" Maximum="{TemplateBinding ScrollableWidth}" ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                            <Rectangle Grid.Row="1" Grid.Column="1" Fill="Transparent"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--<endpoint:EndpointViewHeaderElement x:Name="EndpointViewHeaderElement_new" Grid.Row="0"/>-->
+        <endpoint:EndpointViewHeaderElement x:Name="EndpointViewHeaderElement" Grid.Row="0"/>
+        <!-- 10-05-2019 HNB Add HorizontalScrollBarVisibility -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel Margin="0,10,0,20" Orientation="Vertical" Background="Transparent">
+                <StackPanel.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Background" Value="{StaticResource EndpointViewBackgroundColorBrush}" />
+                    </Style>
+                    <Style TargetType="DockPanel">
+                        <Setter Property="VerticalAlignment" Value="Top" />
+                        <Setter Property="Margin" Value="10 23 0 0" />
+                    </Style>
+
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="{StaticResource textblockColorCodeBrush}" />
+                        <Setter Property="TextWrapping" Value="Wrap" />
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
+
+                </StackPanel.Resources>
+                <StackPanel Style="{DynamicResource serviceListstyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Style="{DynamicResource serviceListLeft}" >
+                            <TextBlock Text="ENDPOINT" Foreground="{StaticResource EndpointViewIconTextBrush}"  Style="{DynamicResource serviceListLeftText}"/>
+                            <Image Source="../Images/icon_endpoint.png" Style="{DynamicResource serviceListLeftImage}" Width="84" Height="78"/>
+                        </StackPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="1"  Margin="0 18 0 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="170" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Computer Name:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="User:" TextAlignment="Right"  Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Power State:" TextAlignment="Right"  Style="{DynamicResource service_content}"/>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Last Synchronization:" TextAlignment="Right" Style="{DynamicResource service_content}"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SystemName}" Style="{DynamicResource service_info}"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding UserName}"  Style="{DynamicResource service_info}" />
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PowerState}" Style="{DynamicResource service_info}" />
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding LastSync}"  Style="{DynamicResource service_info}" />
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Style="{DynamicResource serviceListstyle}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Style="{DynamicResource serviceListLeft}">
+                            <TextBlock Text="HARDWARE" Foreground="{StaticResource EndpointViewIconTextBrush}"  Style="{DynamicResource serviceListLeftText}"/>
+                            <Image Source="../Images/icon_hardware.png" Height="90" Width="90" Style="{DynamicResource serviceListLeftImage}" />
+
+                        </StackPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="1" Margin="0 18 0 10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="170" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="200" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Vendor:" TextAlignment="Right" Style="{DynamicResource service_content}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Model:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Type:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Processor:" TextAlignment="Right" Style="{DynamicResource service_content}"  />
+                                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Memory:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Harddisk:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SystemManufacturer}" Style="{DynamicResource service_info}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SystemModel}" Style="{DynamicResource service_info}"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ComputerType}" TextTrimming="CharacterEllipsis" Style="{DynamicResource service_info}" />
+                                    <!-- 10-05-2019 AvB  HorizontalAlignment-->
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Processor}"  Style="{DynamicResource service_info}" MaxWidth="320" HorizontalAlignment="Left"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding TotalPhysicalMemoryString}" Style="{DynamicResource service_info}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding HDDCapacityString}" Style="{DynamicResource service_info}" />
+                                </Grid>
+                        </DockPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Style="{DynamicResource serviceListstyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Style="{DynamicResource serviceListLeft}">
+                            <TextBlock Text="WINDOWS" Foreground="{StaticResource EndpointViewIconTextBrush}"  Style="{DynamicResource serviceListLeftText}"/>
+                            <Image Source="../Images/icon_windows.png" Width="67" Height="68" Style="{DynamicResource serviceListLeftImage}" />
+
+                        </StackPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="1"  Margin="0 18 0 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="170" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Operation System:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Platform:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding OSName}" Style="{DynamicResource service_info}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SystemType}" Style="{DynamicResource service_info}" />
+
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Style="{DynamicResource serviceListstyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Style="{DynamicResource serviceListLeft}">
+                            <TextBlock Text="NETWORK" Foreground="{StaticResource EndpointViewIconTextBrush}"  Style="{DynamicResource serviceListLeftText}"/>
+                            <Image Source="../Images/icon_network.png" Width="85" Height="86" Style="{DynamicResource serviceListLeftImage}" />
+                        </StackPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="1"  Margin="0 18 0 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="170" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Domain:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="IPv4:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="IPv6:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="MAC:" TextAlignment="Right" Style="{DynamicResource service_content}" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Domain}"  Style="{DynamicResource service_info}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding IPv4}" Style="{DynamicResource service_info}" />
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding IPv6}"  Style="{DynamicResource service_info}" />
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding MACAddress}" Style="{DynamicResource service_info}" />
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Style="{DynamicResource serviceListstyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Style="{DynamicResource serviceListLeft}">
+                            <TextBlock Text="PRODUCTS" Foreground="{StaticResource EndpointViewIconTextBrush}"  Style="{DynamicResource serviceListLeftText}"/>
+                            <Image Source="../Images/icon_products.png" Width="80" Height="84" Style="{DynamicResource serviceListLeftImage}"/>
+                        </StackPanel>
+                        <DockPanel Grid.Row="1" Grid.Column="1"  Margin="0 18 0 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="170" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--<TextBlock Grid.Column="0" Text="POC Agent:" TextAlignment="Right" Style="{DynamicResource service_content}"  />-->
+                                <TextBlock Grid.Column="0" Text="United Control Center Agent:" TextAlignment="Right" Style="{DynamicResource service_content}"  />
+                                <TextBlock Grid.Column="1" Text="{Binding ProductVersion}"  Style="{DynamicResource service_info}" />
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
